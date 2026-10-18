@@ -1,0 +1,6 @@
+{
+  "name": "ErgoFlow - Sit-Stand Productivity Matrix",
+  "description": "A productivity and posture timer for remote professionals featuring the Sit-Stand-Move Matrix, audio notifications, and posture analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
