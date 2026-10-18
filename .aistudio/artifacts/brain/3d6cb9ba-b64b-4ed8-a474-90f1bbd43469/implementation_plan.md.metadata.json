@@ -1,6 +1,6 @@
 {
-  "summary": "Implementation plan for removing time-window clutter from tasks/projects, adding comprehensive project task count and status breakdowns, and introducing full in-app PMI 5-stage documentation workspaces (Charter, WBS, KPIs, etc.) per project.",
-  "updatedAt": "2026-10-17T14:01:56.801649044Z",
+  "summary": "Implementation plan for separating Projects and Tasks tabs into dedicated navigation modules and introducing Work vs. Business categorization across all projects and tasks with inheritance, category filter pills, and dual Monday/Trello task views.",
+  "updatedAt": "2026-10-18T08:04:34.627156218Z",
   "requestFeedback": true,
   "userFacing": true
 }

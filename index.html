@@ -45,6 +45,24 @@
       --stage-execution: #2dd4bf;
       --stage-monitoring: #fbbf24;
       --stage-closure: #fb7185;
+
+      /* Monday.com Signature Status Colors */
+      --monday-done: #00c875;
+      --monday-done-hover: #00b368;
+      --monday-working: #fdab3d;
+      --monday-working-hover: #f19f2e;
+      --monday-stuck: #e2445c;
+      --monday-stuck-hover: #d1374f;
+      --monday-review: #579bfc;
+      --monday-review-hover: #4588e8;
+      --monday-ready: #64748b;
+      --monday-ready-hover: #526173;
+
+      /* Priority Tokens */
+      --prio-critical: #ef4444;
+      --prio-high: #f97316;
+      --prio-med: #eab308;
+      --prio-low: #64748b;
     }
 
     body.state-sit {
@@ -253,6 +271,133 @@
     .nav-tab-btn.active .tab-badge {
       background: rgba(0, 0, 0, 0.35);
       color: #fff;
+    }
+
+    /* ==========================================================================
+       Work vs Business Category Filter Nav & Badges
+       ========================================================================== */
+    .category-filter-nav {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.2rem;
+      border-radius: 9px;
+      gap: 0.2rem;
+    }
+
+    .category-nav-pill {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.7rem;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .category-nav-pill:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .category-nav-pill.active {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+    }
+
+    .category-nav-pill.active[data-category="work"] {
+      background: rgba(99, 102, 241, 0.2);
+      border-color: rgba(99, 102, 241, 0.45);
+      color: #c7d2fe;
+    }
+
+    .category-nav-pill.active[data-category="business"] {
+      background: rgba(245, 158, 11, 0.18);
+      border-color: rgba(245, 158, 11, 0.45);
+      color: #fde68a;
+    }
+
+    .cat-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .cat-dot-work {
+      background: #818cf8;
+      box-shadow: 0 0 6px rgba(129, 140, 248, 0.6);
+    }
+
+    .cat-dot-business {
+      background: #fbbf24;
+      box-shadow: 0 0 6px rgba(251, 191, 36, 0.6);
+    }
+
+    .cat-count {
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+      opacity: 0.85;
+      padding: 0.05rem 0.35rem;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .cat-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .cat-tag-work {
+      background: rgba(99, 102, 241, 0.14);
+      color: #c7d2fe;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .cat-tag-business {
+      background: rgba(245, 158, 11, 0.14);
+      color: #fde68a;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .project-cat-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.22rem 0.6rem;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .project-cat-tag.cat-work {
+      background: rgba(99, 102, 241, 0.16);
+      color: #c7d2fe;
+      border: 1px solid rgba(99, 102, 241, 0.35);
+    }
+
+    .project-cat-tag.cat-business {
+      background: rgba(245, 158, 11, 0.16);
+      color: #fde68a;
+      border: 1px solid rgba(245, 158, 11, 0.35);
     }
 
     .header-actions {
@@ -1425,6 +1570,136 @@
       border: 1px solid rgba(134, 239, 172, 0.25);
     }
 
+    .project-status-select {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      color: var(--text-main);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .project-status-select:hover, .project-status-select:focus {
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .project-desc-text {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 2px solid var(--accent);
+      padding: 0.4rem 0.65rem;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .project-progress-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 9px;
+      padding: 0.55rem 0.75rem;
+    }
+
+    .project-progress-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .project-progress-track {
+      width: 100%;
+      height: 7px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 0.4s ease, background 0.3s ease;
+    }
+
+    .btn-icon-action {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-icon-action:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-icon-action.danger:hover {
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    .btn-pomo-step {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-main);
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      line-height: 1;
+      transition: all 0.15s ease;
+      padding: 0;
+    }
+
+    .btn-pomo-step:hover {
+      background: var(--accent);
+      color: #07111e;
+      border-color: var(--accent);
+    }
+
+    .select-task-stage-inline {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 5px;
+      color: var(--text-main);
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.15rem 0.35rem;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .select-task-stage-inline:hover {
+      border-color: var(--accent);
+    }
+
     .project-pmi-stages-strip {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -2141,14 +2416,826 @@
       color: var(--text-muted);
     }
 
-    @media (max-width: 640px) {
-      .app-container { padding: 0.85rem 0.75rem 2rem; gap: 0.85rem; }
-      .clock-display-wrap { width: 220px; height: 220px; }
-      .time-digits { font-size: 3rem; }
-      .settings-grid { grid-template-columns: 1fr; }
-      .active-task-card { flex-direction: column; align-items: flex-start; }
-      .active-task-actions { width: 100%; justify-content: space-between; }
+    /* ==========================================================================
+       Persistent Top-Bar Timer Pill
+       ========================================================================== */
+    .header-timer-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border-active);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+      border-radius: 9999px;
+      padding: 0.25rem 0.65rem 0.25rem 0.85rem;
+      transition: all 0.2s ease;
+      user-select: none;
     }
+
+    .header-timer-pill:hover {
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .header-timer-digits {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    .header-timer-posture-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .header-timer-task {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      max-width: 170px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+    }
+
+    .header-timer-task:hover {
+      color: var(--text-main);
+    }
+
+    .header-timer-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .btn-timer-mini {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      padding: 0;
+    }
+
+    .btn-timer-mini:hover {
+      background: var(--accent);
+      color: #07111e;
+      border-color: var(--accent);
+      transform: scale(1.05);
+    }
+
+    .btn-timer-mini.active {
+      background: var(--accent);
+      color: #07111e;
+      box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.5);
+    }
+
+    /* ==========================================================================
+       Collapsible Ergonomic Timer Dock (Slide-out Drawer)
+       ========================================================================== */
+    .timer-dock-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(4px);
+      z-index: 9990;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .timer-dock-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .timer-dock-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 380px;
+      max-width: 92vw;
+      height: 100vh;
+      background: #08111e;
+      border-left: 1px solid var(--border-active);
+      box-shadow: -15px 0 35px rgba(0, 0, 0, 0.65);
+      z-index: 9995;
+      transform: translateX(105%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .timer-dock-drawer.open {
+      transform: translateX(0);
+    }
+
+    .timer-dock-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.15rem 1.25rem 0.85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(15, 23, 42, 0.6);
+    }
+
+    .timer-dock-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .timer-dock-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      flex: 1;
+    }
+
+    /* ==========================================================================
+       WORKSPACE TOOLBAR & DUAL VIEW SWITCHER (Monday & Trello Hybrid)
+       ========================================================================== */
+    .workspace-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 0.75rem 1rem;
+    }
+
+    .workspace-left-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .workspace-view-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.2rem;
+      border-radius: 9px;
+      gap: 0.2rem;
+    }
+
+    .view-switch-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .view-switch-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .view-switch-btn.active {
+      background: var(--accent);
+      color: #07111e;
+      box-shadow: 0 2px 6px rgba(var(--accent-rgb), 0.3);
+    }
+
+    .workspace-project-pills {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      overflow-x: auto;
+      max-width: 100%;
+      padding-bottom: 0.15rem;
+    }
+
+    .workspace-project-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 0.3rem 0.65rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .workspace-project-pill:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+    }
+
+    .workspace-project-pill.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .workspace-right-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-left: auto;
+    }
+
+    .workspace-search-box {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 0.32rem 0.65rem;
+      color: var(--text-main);
+      font-size: 0.78rem;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .workspace-search-box:focus-within {
+      border-color: var(--accent);
+      background: rgba(0, 0, 0, 0.55);
+      box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.25);
+    }
+
+    .workspace-search-input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text-main);
+      font-size: 0.78rem;
+      font-family: inherit;
+      width: 140px;
+      transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .workspace-search-input:focus,
+    .workspace-search-box.has-query .workspace-search-input {
+      width: 210px;
+    }
+
+    .search-match-count {
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15);
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      white-space: nowrap;
+    }
+
+    .btn-search-clear {
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      cursor: pointer;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.25rem;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: all 0.15s ease;
+    }
+
+    .btn-search-clear:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .search-kbd-hint {
+      font-size: 0.65rem;
+      font-family: var(--font-mono);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-dim);
+      padding: 0.05rem 0.35rem;
+      border-radius: 4px;
+      line-height: 1.2;
+      pointer-events: none;
+    }
+
+    mark.search-match-highlight {
+      background: rgba(251, 191, 36, 0.35);
+      color: #fef08a;
+      border-radius: 3px;
+      padding: 0.02rem 0.2rem;
+      font-weight: 700;
+      box-shadow: 0 0 8px rgba(251, 191, 36, 0.25);
+    }
+
+    .workspace-search-empty-state {
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      margin: 1rem 0;
+      width: 100%;
+    }
+
+    .search-empty-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.6rem;
+      opacity: 0.85;
+    }
+
+    .search-empty-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+
+    .search-empty-subtitle {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin-bottom: 1.25rem;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       MONDAY.COM STYLE GROUPED SPREADSHEET TABLE
+       ========================================================================== */
+    .monday-workspace {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .monday-group {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .monday-group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      padding: 0.85rem 1.15rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      user-select: none;
+      flex-wrap: wrap;
+    }
+
+    .monday-group-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      cursor: pointer;
+    }
+
+    .monday-group-chevron {
+      color: var(--text-dim);
+      transition: transform 0.2s ease;
+      display: inline-flex;
+    }
+
+    .monday-group.collapsed .monday-group-chevron {
+      transform: rotate(-90deg);
+    }
+
+    .monday-group-color-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .monday-group-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .monday-group-count {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-weight: 600;
+    }
+
+    .monday-group-metrics {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    /* Monday Battery Progress Bar */
+    .monday-battery-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .monday-battery-track {
+      width: 140px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .monday-battery-fill {
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+
+    .monday-battery-percent {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-main);
+      min-width: 36px;
+    }
+
+    .monday-table-wrap {
+      overflow-x: auto;
+      width: 100%;
+    }
+
+    .monday-group.collapsed .monday-table-wrap,
+    .monday-group.collapsed .monday-inline-add-row {
+      display: none;
+    }
+
+    .monday-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      text-align: left;
+    }
+
+    .monday-th {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+      padding: 0.65rem 0.85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.15);
+      white-space: nowrap;
+    }
+
+    .monday-tr {
+      transition: background 0.15s ease;
+    }
+
+    .monday-tr:hover {
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .monday-tr.is-active {
+      background: rgba(56, 189, 248, 0.07);
+    }
+
+    .monday-td {
+      padding: 0.55rem 0.85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.82rem;
+      color: var(--text-main);
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    /* Monday Signature Status Block */
+    .monday-status-cell {
+      padding: 0.42rem 0.65rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.76rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      color: #ffffff;
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      width: 130px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .monday-status-cell:hover {
+      filter: brightness(1.12);
+      transform: scale(1.02);
+    }
+
+    .status-done { background: var(--monday-done); }
+    .status-working_on_it { background: var(--monday-working); }
+    .status-stuck { background: var(--monday-stuck); }
+    .status-in_review { background: var(--monday-review); }
+    .status-not_started { background: var(--monday-ready); }
+
+    /* Monday Priority Chip */
+    .monday-priority-chip {
+      padding: 0.32rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 90px;
+      transition: all 0.15s ease;
+    }
+
+    .monday-priority-chip:hover {
+      filter: brightness(1.15);
+    }
+
+    .prio-critical { background: rgba(239, 68, 68, 0.18); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.35); }
+    .prio-high { background: rgba(249, 115, 22, 0.18); color: #fdba74; border: 1px solid rgba(249, 115, 22, 0.35); }
+    .prio-medium { background: rgba(234, 179, 8, 0.18); color: #fde047; border: 1px solid rgba(234, 179, 8, 0.35); }
+    .prio-low { background: rgba(100, 116, 139, 0.2); color: #cbd5e1; border: 1px solid rgba(100, 116, 139, 0.35); }
+
+    /* Inline Quick Add Row */
+    .monday-inline-add-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.65rem 1rem;
+      background: rgba(0, 0, 0, 0.15);
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .monday-inline-add-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 0.82rem;
+      color: var(--text-main);
+      font-family: inherit;
+    }
+
+    .monday-inline-add-input::placeholder {
+      color: var(--text-dim);
+    }
+
+    /* ==========================================================================
+       TRELLO-STYLE KANBAN BOARD
+       ========================================================================== */
+    .trello-workspace {
+      display: flex;
+      gap: 1.15rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      align-items: flex-start;
+      min-height: 560px;
+    }
+
+    .trello-column {
+      flex: 0 0 290px;
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      max-height: calc(100vh - 220px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    .trello-col-header {
+      padding: 0.85rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 3px solid var(--accent);
+      border-radius: 12px 12px 0 0;
+      background: rgba(0, 0, 0, 0.25);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .trello-col-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .trello-cards-lane {
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    /* Trello Cards */
+    .trello-card {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 9px;
+      padding: 0.75rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .trello-card:hover {
+      background: rgba(30, 41, 59, 0.95);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+    }
+
+    .trello-card.is-active {
+      border-color: var(--accent);
+      box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.35);
+    }
+
+    .trello-card-color-stripe {
+      height: 4px;
+      border-radius: 2px;
+      width: 100%;
+    }
+
+    .trello-card-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .trello-card-tags {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .trello-status-chip {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      color: #fff;
+    }
+
+    .trello-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.35rem;
+      padding-top: 0.45rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+
+    .trello-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .trello-col-footer {
+      padding: 0.65rem 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: 0 0 12px 12px;
+    }
+
+    .trello-btn-add-card {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px dashed rgba(255, 255, 255, 0.12);
+      border-radius: 7px;
+      padding: 0.45rem;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      transition: all 0.15s ease;
+    }
+
+    .trello-btn-add-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+      border-color: var(--accent);
+    }
+
+    /* ==========================================================================
+       MONDAY.COM FLOATING STATUS PICKER POPOVER
+       ========================================================================== */
+    .monday-popover {
+      position: fixed;
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 10px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.75), 0 0 15px rgba(0, 0, 0, 0.5);
+      padding: 0.45rem;
+      display: none;
+      flex-direction: column;
+      gap: 0.35rem;
+      z-index: 99999;
+      width: 175px;
+      animation: popoverFadeIn 0.15s ease-out;
+    }
+
+    .monday-popover.open,
+    .monday-popover.visible {
+      display: flex;
+    }
+
+    @keyframes popoverFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .monday-popover-item {
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-align: center;
+      cursor: pointer;
+      transition: filter 0.15s ease, transform 0.1s ease;
+      user-select: none;
+    }
+
+    .monday-popover-item:hover {
+      filter: brightness(1.15);
+      transform: scale(1.02);
+    }
+
+    .monday-popover-item.opt-done { background: var(--monday-done); }
+    .monday-popover-item.opt-working { background: var(--monday-working); }
+    .monday-popover-item.opt-stuck { background: var(--monday-stuck); }
+    .monday-popover-item.opt-review { background: var(--monday-review); }
+    .monday-popover-item.opt-ready { background: var(--monday-ready); }
   </style>
 </head>
 <body class="state-sit">
@@ -2169,33 +3256,71 @@
         </div>
       </div>
 
-      <!-- Navigation Tabs across Modules -->
+      <!-- Navigation Tabs across Modules (Projects and Tasks Decoupled) -->
       <nav class="nav-tabs" role="tablist" aria-label="ErgoFlow Work OS Modules">
-        <button id="navTabTimer" class="nav-tab-btn active" role="tab" aria-selected="true" data-target="viewTimer">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span>Timer</span>
+        <button id="navTabProjects" class="nav-tab-btn" role="tab" aria-selected="false" data-target="viewProjects" title="Projects &amp; Charters (Key: 1)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          <span>Projects</span>
+          <span id="tabProjectCount" class="tab-badge">0</span>
         </button>
-        <button id="navTabOS" class="nav-tab-btn" role="tab" aria-selected="false" data-target="viewOS">
+        <button id="navTabTasks" class="nav-tab-btn active" role="tab" aria-selected="true" data-target="viewWorkspace" title="Tasks Board &amp; Table (Key: 2)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span>Tasks</span>
+          <span id="tabTaskCount" class="tab-badge">0</span>
+        </button>
+        <button id="navTabOS" class="nav-tab-btn" role="tab" aria-selected="false" data-target="viewOS" title="Central Command Center (Key: 3)">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
           <span>Command Center</span>
         </button>
-        <button id="navTabKanban" class="nav-tab-btn" role="tab" aria-selected="false" data-target="viewKanban">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="5" height="18" rx="1"/><rect x="10" y="3" width="5" height="18" rx="1"/><rect x="17" y="3" width="5" height="18" rx="1"/></svg>
-          <span>PMI Stages (Kanban)</span>
-        </button>
-        <button id="navTabTasks" class="nav-tab-btn" role="tab" aria-selected="false" data-target="viewTasks">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-          <span>Tasks &amp; Projects</span>
-          <span id="tabTaskCount" class="tab-badge">0</span>
-        </button>
-        <button id="navTabGoals" class="nav-tab-btn" role="tab" aria-selected="false" data-target="viewGoals">
+        <button id="navTabGoals" class="nav-tab-btn" role="tab" aria-selected="false" data-target="viewGoals" title="Daily Goals (Key: 4)">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <span>Daily Goals</span>
         </button>
+        <button id="navTabTimer" class="nav-tab-btn" role="tab" aria-selected="false" data-target="viewTimer" title="Fullscreen Timer (Key: 5)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Full Timer</span>
+        </button>
       </nav>
 
-      <!-- Action Icons -->
+      <!-- Category Filter Segmented Control (All / Work / Business) -->
+      <div class="category-filter-nav" id="globalCategoryNav" role="group" aria-label="Scope Filter">
+        <button type="button" class="category-nav-pill active" data-category="all" title="View all projects &amp; tasks">
+          <span>All</span>
+          <span class="cat-count" id="catCountAll">0</span>
+        </button>
+        <button type="button" class="category-nav-pill" data-category="work" title="Filter to Work projects &amp; deliverables">
+          <span class="cat-dot cat-dot-work"></span>
+          <span>Work</span>
+          <span class="cat-count" id="catCountWork">0</span>
+        </button>
+        <button type="button" class="category-nav-pill" data-category="business" title="Filter to Business &amp; venture deliverables">
+          <span class="cat-dot cat-dot-business"></span>
+          <span>Business</span>
+          <span class="cat-count" id="catCountBusiness">0</span>
+        </button>
+      </div>
+
+      <!-- Action Icons & Persistent Timer Pill -->
       <div class="header-actions">
+        <!-- Persistent Top-Bar Timer Pill -->
+        <div class="header-timer-pill" id="headerTimerPill" title="Click to toggle Ergonomic Focus Dock (Key: T)">
+          <span class="header-timer-digits" id="headerTimerDigits">25:00</span>
+          <span class="header-timer-posture-badge" id="headerTimerPostureBadge">Sit</span>
+          <span class="header-timer-task" id="headerTimerTask">General Work OS</span>
+          <div class="header-timer-actions">
+            <button id="btnHeaderPlayPause" class="btn-timer-mini" title="Play/Pause Focus Timer (Space)">
+              <svg id="headerIconPlay" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <svg id="headerIconPause" style="display:none;" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+            </button>
+            <button id="btnHeaderSkip" class="btn-timer-mini" title="Skip Phase (S)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+            </button>
+            <button id="btnToggleTimerDock" class="btn-timer-mini" title="Open Ergonomic Timer Dock (T)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+            </button>
+          </div>
+        </div>
+
         <button id="btnHeaderPomoGoal" class="daily-pomo-chip" title="View Daily Pomodoro Goal Progress">
           <span>🍅</span>
           <span id="headerPomoProgress">0/8</span>
@@ -2216,10 +3341,154 @@
       </div>
     </header>
 
+    <!-- Collapsible Ergonomic Timer Dock Backdrop & Drawer -->
+    <div id="timerDockBackdrop" class="timer-dock-backdrop" aria-hidden="true"></div>
+    <aside id="timerDockDrawer" class="timer-dock-drawer" aria-label="Ergonomic Focus Timer Dock">
+      <div class="timer-dock-header">
+        <div class="timer-dock-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Ergonomic Focus Dock</span>
+        </div>
+        <button id="btnCloseTimerDock" class="modal-close-btn" aria-label="Close Timer Dock (Esc)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="timer-dock-body">
+        <!-- Posture State & Cycle Header -->
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div id="dockStateBadge" class="state-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 19v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3"/><circle cx="12" cy="7" r="4"/></svg>
+            <span id="dockStateBadgeText">Sit (Focus)</span>
+          </div>
+          <button id="btnDockPostureOverride" class="posture-override-btn" title="Toggle posture (Key: O)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+            <span id="dockPostureOverrideText">Switch to Stand</span>
+          </button>
+        </div>
+
+        <!-- Clock Display & Progress Ring -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:0.5rem; margin:0.35rem 0;">
+          <div class="clock-display-wrap" style="width:200px; height:200px;">
+            <svg class="progress-svg" viewBox="0 0 280 280">
+              <circle class="progress-ring-bg" cx="140" cy="140" r="125"></circle>
+              <circle id="dockProgressRingFill" class="progress-ring-fill" cx="140" cy="140" r="125"></circle>
+            </svg>
+            <div class="clock-digits-container">
+              <div id="dockTimeDigits" class="time-digits" style="font-size:2.8rem;">25:00</div>
+              <div id="dockPhaseSubtext" class="phase-subtext" style="font-size:0.75rem;">Focus Block 1 of 2 (Sitting)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timer Controls Row -->
+        <div class="controls-row" style="justify-content:center; gap:0.65rem;">
+          <button id="btnDockReset" class="btn-secondary" title="Reset (R)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          </button>
+          <button id="btnDockPlayPause" class="btn-primary" aria-label="Start Timer">
+            <svg id="dockIconPlay" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <svg id="dockIconPause" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+            <span id="dockPlayPauseText">Start Focus</span>
+          </button>
+          <button id="btnDockSkip" class="btn-secondary" title="Skip Phase (S)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+          </button>
+        </div>
+
+        <!-- Active Task in Dock -->
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:0.75rem 0.85rem;">
+          <div style="font-size:0.7rem; color:var(--text-dim); text-transform:uppercase; font-weight:700; margin-bottom:0.25rem;">Active Focus Deliverable</div>
+          <div id="dockActiveTaskTitle" style="font-size:0.85rem; font-weight:600; color:var(--text-main); line-height:1.35;">Draft Project Charter &amp; Feasibility</div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.4rem; font-size:0.72rem;">
+            <span id="dockActiveTaskStage" class="pmi-stage-badge pmi-stage-execution" style="font-size:0.65rem;">3. Execution</span>
+            <span id="dockActiveTaskPomos" style="color:#fca5a5; font-family:var(--font-mono); font-weight:700;">🍅 1/2</span>
+          </div>
+        </div>
+
+        <!-- Ergo Coaching Tip in Dock -->
+        <div class="coaching-tip" id="dockCoachingTip" style="margin:0;">
+          <svg class="coaching-tip-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <div id="dockCoachingTipText" style="font-size:0.75rem;">
+            <strong>Ergo Tip:</strong> Adjust desk height so forearms rest parallel to floor. Shift weight evenly while standing.
+          </div>
+        </div>
+
+        <!-- Today's Pomo Progress in Dock -->
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:0.65rem 0.85rem; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid rgba(255,255,255,0.05); font-size:0.75rem;">
+          <span style="color:var(--text-dim);">Today's Focus Goal</span>
+          <span id="dockPomoGoalText" style="font-family:var(--font-mono); font-weight:700; color:#fca5a5;">🍅 0/8</span>
+        </div>
+      </div>
+    </aside>
+
     <!-- ====================================================================
-         VIEW 1: TIMER & ACTIVE TASK MATRIX
+         VIEW: HYBRID WORKSPACE (MONDAY.COM TABLE + TRELLO BOARD)
          ==================================================================== -->
-    <section id="viewTimer" class="view-panel active" aria-label="Timer View">
+    <section id="viewWorkspace" class="view-panel active" aria-label="Project Workspace">
+      
+      <!-- Workspace Toolbar & View Switcher -->
+      <div class="workspace-toolbar">
+        <div class="workspace-left-controls">
+          <!-- Dual View Switcher -->
+          <div class="workspace-view-switcher" role="tablist" aria-label="View Modes">
+            <button id="btnSwitchTableView" class="view-switch-btn active" role="tab" aria-selected="true" data-mode="table" title="Monday.com Grouped Spreadsheet View">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+              <span>Table View</span>
+            </button>
+            <button id="btnSwitchBoardView" class="view-switch-btn" role="tab" aria-selected="false" data-mode="board" title="Trello Kanban Card Board View">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="5" height="18" rx="1"/><rect x="10" y="3" width="5" height="18" rx="1"/><rect x="17" y="3" width="5" height="18" rx="1"/></svg>
+              <span>Board View</span>
+            </button>
+          </div>
+
+          <!-- Project Filter Pills -->
+          <div class="workspace-project-pills" id="workspaceProjectPills">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <div class="workspace-right-controls">
+          <div class="workspace-search-box" id="workspaceSearchBox">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input id="workspaceSearchInput" type="text" class="workspace-search-input" placeholder="Search tasks..." aria-label="Search tasks in workspace" autocomplete="off">
+            <span id="workspaceSearchMatchCount" class="search-match-count" style="display:none;">0 matches</span>
+            <button type="button" id="btnWorkspaceSearchClear" class="btn-search-clear" title="Clear search (Esc)" aria-label="Clear search" style="display:none;">✕</button>
+            <kbd id="searchKbdHint" class="search-kbd-hint" title="Press / to search">/</kbd>
+          </div>
+
+          <select id="workspaceStageFilter" class="select-subtle" title="Filter by PMI Stage">
+            <option value="all">All PMI Stages</option>
+            <option value="initiation">1. Initiation</option>
+            <option value="planning">2. Planning</option>
+            <option value="execution">3. Execution</option>
+            <option value="monitoring">4. Monitoring</option>
+            <option value="closure">5. Closure</option>
+          </select>
+
+          <button id="btnWorkspaceNewTask" class="btn-create-submit" title="Create new task">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>New Task</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Container A: Monday.com Grouped Spreadsheet Table -->
+      <div id="workspaceTableView" class="monday-workspace">
+        <!-- Rendered by JS: 5 PMI Stage Groups with battery bars & status chips -->
+      </div>
+
+      <!-- Container B: Trello-Style Kanban Board -->
+      <div id="workspaceBoardView" class="trello-workspace" style="display:none;">
+        <!-- Rendered by JS: 5 Stage Columns with Trello cards -->
+      </div>
+
+    </section>
+
+    <!-- ====================================================================
+         VIEW: TIMER & ACTIVE TASK MATRIX (FULLSCREEN)
+         ==================================================================== -->
+    <section id="viewTimer" class="view-panel" aria-label="Timer View">
       
       <!-- Active Task Card Bridge -->
       <div class="active-task-card" id="activeTaskCard">
@@ -2582,6 +3851,13 @@
               <label style="color:var(--text-dim); font-size:0.75rem;">Project:</label>
               <select id="selectTaskProject" class="select-subtle"></select>
 
+              <label style="color:var(--text-dim); font-size:0.75rem;">Category:</label>
+              <select id="selectTaskCategory" class="select-subtle">
+                <option value="inherit">Inherit</option>
+                <option value="work">Work</option>
+                <option value="business">Business</option>
+              </select>
+
               <label style="color:var(--text-dim); font-size:0.75rem;">Est 🍅:</label>
               <select id="selectTaskEstPomo" class="select-subtle">
                 <option value="1">🍅 1 (30m)</option>
@@ -2627,25 +3903,45 @@
 
         <div id="taskListContainer" class="task-list"></div>
       </div>
+    </section>
 
-      <!-- Projects Section -->
+    <!-- ====================================================================
+         VIEW: PROJECTS & PMI DOCUMENTATION
+         ==================================================================== -->
+    <section id="viewProjects" class="view-panel" aria-label="Projects and PMI Documentation">
       <div class="section-card">
-        <div class="section-header-row">
+        <div class="section-header-row" style="flex-wrap:wrap; gap:0.75rem;">
           <div>
             <h3 class="section-title">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
               <span>Projects &amp; Focus Domains</span>
             </h3>
-            <p style="font-size:0.75rem; color:var(--text-dim); margin-top:0.15rem;">Group tasks and monitor Pomodoro investment.</p>
+            <p style="font-size:0.75rem; color:var(--text-dim); margin-top:0.15rem;">Portfolio categorized into Work and Business initiatives across the 5 PMI stages.</p>
           </div>
-          <button id="btnOpenNewProjectModal" class="btn-create-submit">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            New Project
-          </button>
+
+          <div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+            <div class="category-filter-nav" id="projectCategoryNav" role="group" aria-label="Project Scope Filter">
+              <button type="button" class="category-nav-pill active" data-category="all" title="All Projects">
+                <span>All Projects</span>
+              </button>
+              <button type="button" class="category-nav-pill" data-category="work" title="Work Projects">
+                <span class="cat-dot cat-dot-work"></span>
+                <span>Work</span>
+              </button>
+              <button type="button" class="category-nav-pill" data-category="business" title="Business Projects">
+                <span class="cat-dot cat-dot-business"></span>
+                <span>Business</span>
+              </button>
+            </div>
+
+            <button id="btnOpenNewProjectModal" class="btn-create-submit">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              New Project
+            </button>
+          </div>
         </div>
         <div id="projectGridContainer" class="project-grid"></div>
       </div>
-
     </section>
 
     <!-- ====================================================================
@@ -2785,13 +4081,39 @@
             </div>
 
             <div class="setting-input-card">
-              <label for="editTaskPostureSelect" class="setting-label">Posture Preference</label>
-              <select id="editTaskPostureSelect" class="setting-input-number" style="background:#07111e; color:#fff;">
-                <option value="auto">Auto Sit-Stand Matrix</option>
-                <option value="sit">Sit Only</option>
-                <option value="stand">Stand Only</option>
+              <label for="editTaskCompletedPomoInput" class="setting-label">Completed Pomodoros (🍅)</label>
+              <input id="editTaskCompletedPomoInput" type="number" min="0" max="20" value="0" class="setting-input-number">
+            </div>
+          </div>
+
+          <div class="settings-grid">
+            <div class="setting-input-card">
+              <label for="editTaskStatusSelect" class="setting-label">Task Status / Progress</label>
+              <select id="editTaskStatusSelect" class="setting-input-number" style="background:#07111e; color:#fff;">
+                <option value="not_started">⚪ Not Started (0%)</option>
+                <option value="in_progress">🔵 In Progress (50%)</option>
+                <option value="monitoring">🟡 In Review / Monitoring (75%)</option>
+                <option value="completed">🟢 Completed / Closure (100%)</option>
               </select>
             </div>
+
+            <div class="setting-input-card">
+              <label for="editTaskCategorySelect" class="setting-label">Category (Classification)</label>
+              <select id="editTaskCategorySelect" class="setting-input-number" style="background:#07111e; color:#fff;">
+                <option value="inherit">Inherit from Project</option>
+                <option value="work">💼 Work (Primary / Technical)</option>
+                <option value="business">🚀 Business (Venture / Client)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="setting-input-card">
+            <label for="editTaskPostureSelect" class="setting-label">Posture Preference</label>
+            <select id="editTaskPostureSelect" class="setting-input-number" style="background:#07111e; color:#fff;">
+              <option value="auto">Auto Sit-Stand Matrix</option>
+              <option value="sit">Sit Only</option>
+              <option value="stand">Stand Only</option>
+            </select>
           </div>
 
           <div class="settings-grid">
@@ -2824,7 +4146,7 @@
   <!-- ======================================================================
        MODAL: CONFIRMATION DIALOG MODAL (In-App, sandbox safe)
        ====================================================================== -->
-  <div id="confirmDialogModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="confirmDialogTitle">
+  <div id="confirmDialogModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="confirmDialogTitle" style="z-index: 9998;">
     <div class="modal-card" style="max-width: 440px;">
       <div class="modal-header">
         <div style="display:flex; align-items:center; gap:0.6rem;">
@@ -2958,11 +4280,155 @@
               <button type="button" class="color-dot-opt" data-color="#fb923c" style="width:24px; height:24px; border-radius:50%; background:#fb923c; border:2px solid transparent; cursor:pointer;"></button>
             </div>
           </div>
+
+          <div class="setting-input-card">
+            <label for="inputProjectDescription" class="setting-label">Project Objective / Scope Summary</label>
+            <textarea id="inputProjectDescription" rows="2" class="setting-input-number" style="height:auto; min-height:50px; padding:0.45rem; line-height:1.4; resize:vertical;" placeholder="Brief scope or charter summary..."></textarea>
+          </div>
+
+          <div class="settings-grid">
+            <div class="setting-input-card">
+              <label for="selectNewProjectCategory" class="setting-label">Category</label>
+              <select id="selectNewProjectCategory" class="setting-input-number" style="background:#07111e; color:#fff;">
+                <option value="work" selected>💼 Work (Primary / Technical)</option>
+                <option value="business">🚀 Business (Venture / Client)</option>
+              </select>
+            </div>
+            <div class="setting-input-card">
+              <label for="selectNewProjectStatus" class="setting-label">Initial Status</label>
+              <select id="selectNewProjectStatus" class="setting-input-number" style="background:#07111e; color:#fff;">
+                <option value="active">Active (In Progress)</option>
+                <option value="planning">🟣 Planning</option>
+                <option value="on_track">🟢 On Track</option>
+                <option value="on_hold">🟡 On Hold</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="setting-input-card" style="margin-top:0.75rem;">
+            <label for="selectNewProjectStage" class="setting-label">Initial PMI Stage</label>
+            <select id="selectNewProjectStage" class="setting-input-number" style="background:#07111e; color:#fff;">
+              <option value="initiation">1. Initiation</option>
+              <option value="planning" selected>2. Planning</option>
+              <option value="execution">3. Execution</option>
+            </select>
+          </div>
         </div>
 
         <div class="modal-footer">
           <button type="button" id="btnCancelProject" class="btn-dialog btn-dialog-ghost">Cancel</button>
           <button type="submit" class="btn-dialog btn-dialog-solid">Create Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       MODAL 4: EDIT PROJECT & STATUS / PROGRESS MODAL
+       ====================================================================== -->
+  <div id="editProjectModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="editProjectModalTitle">
+    <div class="modal-card" style="max-width: 520px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:0.55rem;">
+          <span id="editProjectColorDot" style="width:12px; height:12px; border-radius:50%; background:#38bdf8; display:inline-block;"></span>
+          <h2 id="editProjectModalTitle" class="modal-title">Edit Project &amp; Progress</h2>
+        </div>
+        <button id="btnEditProjectModalClose" class="modal-close-btn" aria-label="Close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <form id="formEditProject">
+        <input type="hidden" id="editProjectId">
+        <div class="modal-body">
+          <div class="setting-input-card">
+            <label for="editProjectNameInput" class="setting-label">Project Name</label>
+            <input id="editProjectNameInput" type="text" class="setting-input-number" required autocomplete="off">
+          </div>
+
+          <div>
+            <div class="settings-section-title">Color Tag</div>
+            <div id="editProjectColorPickerRow" style="display:flex; gap:0.6rem; align-items:center; margin-top:0.4rem;">
+              <button type="button" class="color-dot-opt active" data-color="#38bdf8" style="width:24px; height:24px; border-radius:50%; background:#38bdf8; border:2px solid #fff; cursor:pointer;"></button>
+              <button type="button" class="color-dot-opt" data-color="#2dd4bf" style="width:24px; height:24px; border-radius:50%; background:#2dd4bf; border:2px solid transparent; cursor:pointer;"></button>
+              <button type="button" class="color-dot-opt" data-color="#fbbf24" style="width:24px; height:24px; border-radius:50%; background:#fbbf24; border:2px solid transparent; cursor:pointer;"></button>
+              <button type="button" class="color-dot-opt" data-color="#f87171" style="width:24px; height:24px; border-radius:50%; background:#f87171; border:2px solid transparent; cursor:pointer;"></button>
+              <button type="button" class="color-dot-opt" data-color="#c084fc" style="width:24px; height:24px; border-radius:50%; background:#c084fc; border:2px solid transparent; cursor:pointer;"></button>
+              <button type="button" class="color-dot-opt" data-color="#fb923c" style="width:24px; height:24px; border-radius:50%; background:#fb923c; border:2px solid transparent; cursor:pointer;"></button>
+            </div>
+          </div>
+
+          <div class="setting-input-card">
+            <label for="editProjectDescriptionInput" class="setting-label">Project Objective / Description</label>
+            <textarea id="editProjectDescriptionInput" rows="2" class="setting-input-number" style="height:auto; min-height:54px; padding:0.5rem; line-height:1.4; resize:vertical;" placeholder="Key objectives, charter summary, or target outcomes..."></textarea>
+          </div>
+
+          <div class="settings-grid">
+            <div class="setting-input-card">
+              <label for="editProjectCategorySelect" class="setting-label">Category</label>
+              <select id="editProjectCategorySelect" class="setting-input-number" style="background:#07111e; color:#fff;">
+                <option value="work">💼 Work (Primary / Technical)</option>
+                <option value="business">🚀 Business (Venture / Client)</option>
+              </select>
+            </div>
+
+            <div class="setting-input-card">
+              <label for="editProjectStatusSelect" class="setting-label">Project Status</label>
+              <select id="editProjectStatusSelect" class="setting-input-number" style="background:#07111e; color:#fff;">
+                <option value="active">Active (In Progress)</option>
+                <option value="on_track">🟢 On Track</option>
+                <option value="at_risk">🔴 At Risk</option>
+                <option value="on_hold">🟡 On Hold</option>
+                <option value="planning">🟣 In Planning</option>
+                <option value="completed">✅ Completed / Closed</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="setting-input-card" style="margin-top:0.75rem;">
+            <label for="editProjectStageSelect" class="setting-label">Primary PMI Stage</label>
+            <select id="editProjectStageSelect" class="setting-input-number" style="background:#07111e; color:#fff;">
+              <option value="initiation">1. Initiation (Scope &amp; Charter)</option>
+              <option value="planning">2. Planning (WBS &amp; Schedule)</option>
+              <option value="execution">3. Execution (Building)</option>
+              <option value="monitoring">4. Monitoring &amp; Controlling</option>
+              <option value="closure">5. Closure (Handover)</option>
+            </select>
+          </div>
+
+          <div class="settings-grid">
+            <div class="setting-input-card">
+              <label for="editProjectProgressModeSelect" class="setting-label">Progress Calculation</label>
+              <select id="editProjectProgressModeSelect" class="setting-input-number" style="background:#07111e; color:#fff;">
+                <option value="auto">Auto (from completed tasks)</option>
+                <option value="manual">Manual Progress %</option>
+              </select>
+            </div>
+
+            <div class="setting-input-card">
+              <label for="editProjectDueDateInput" class="setting-label">Target Milestone Date</label>
+              <input id="editProjectDueDateInput" type="date" class="setting-input-number">
+            </div>
+          </div>
+
+          <div id="editProjectManualProgressCard" class="setting-input-card" style="display:none;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+              <label for="editProjectProgressSlider" class="setting-label">Manual Progress</label>
+              <span id="editProjectProgressNum" style="font-family:var(--font-mono); font-weight:700; color:var(--accent);">50%</span>
+            </div>
+            <input id="editProjectProgressSlider" type="range" min="0" max="100" value="50" style="width:100%; accent-color:var(--accent); cursor:pointer;">
+          </div>
+        </div>
+
+        <div class="modal-footer" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+          <button type="button" id="btnDeleteProjectFromModal" class="btn-dialog" style="background:rgba(239, 68, 68, 0.12); color:#ef4444; border:1px solid rgba(239, 68, 68, 0.35); font-weight:600;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle; margin-right:4px;"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            Delete Project
+          </button>
+          <div style="display:flex; gap:0.5rem;">
+            <button type="button" id="btnCancelEditProject" class="btn-dialog btn-dialog-ghost">Cancel</button>
+            <button type="submit" class="btn-dialog btn-dialog-solid">Save Project</button>
+          </div>
         </div>
       </form>
     </div>
@@ -3248,6 +4714,24 @@
     </div>
   </div>
 
+  <!-- ======================================================================
+       MONDAY.COM FLOATING STATUS & PRIORITY PICKER POPOVERS
+       ====================================================================== -->
+  <div id="mondayStatusPicker" class="monday-popover" role="menu" aria-label="Set Task Status">
+    <div class="monday-popover-item opt-done" data-status="done">Done</div>
+    <div class="monday-popover-item opt-working" data-status="working_on_it">Working on it</div>
+    <div class="monday-popover-item opt-stuck" data-status="stuck">Stuck</div>
+    <div class="monday-popover-item opt-review" data-status="in_review">In Review</div>
+    <div class="monday-popover-item opt-ready" data-status="not_started">Ready</div>
+  </div>
+
+  <div id="priorityPicker" class="monday-popover" role="menu" aria-label="Set Task Priority" style="width:140px;">
+    <div class="monday-popover-item prio-critical" data-priority="critical">Critical</div>
+    <div class="monday-popover-item prio-high" data-priority="high">High</div>
+    <div class="monday-popover-item prio-medium" data-priority="medium">Medium</div>
+    <div class="monday-popover-item prio-low" data-priority="low">Low</div>
+  </div>
+
   <!-- Vanilla JavaScript Application Logic -->
   <script>
     (function () {
@@ -3365,10 +4849,54 @@
       }
 
       const DEFAULT_PROJECTS = [
-        { id: 'proj_gen', name: 'General Work OS', color: '#38bdf8' },
-        { id: 'proj_eng', name: 'Engineering & Architecture', color: '#2dd4bf' },
-        { id: 'proj_growth', name: 'Product Growth', color: '#fbbf24' },
-        { id: 'proj_ops', name: 'Operations & Stakeholders', color: '#f87171' }
+        {
+          id: 'proj_gen',
+          name: 'General Work OS',
+          category: 'work',
+          color: '#38bdf8',
+          description: 'Daily operational tasks, ergonomics, and cross-functional administrative duties.',
+          status: 'active',
+          stage: 'execution',
+          progressMode: 'auto',
+          manualProgress: 50,
+          dueDate: ''
+        },
+        {
+          id: 'proj_eng',
+          name: 'Engineering & Architecture',
+          category: 'work',
+          color: '#2dd4bf',
+          description: 'Technical infrastructure, core features, and system stability roadmap.',
+          status: 'on_track',
+          stage: 'execution',
+          progressMode: 'auto',
+          manualProgress: 65,
+          dueDate: ''
+        },
+        {
+          id: 'proj_growth',
+          name: 'Product Growth',
+          category: 'business',
+          color: '#fbbf24',
+          description: 'User acquisition, analytics experiments, and conversion rate optimization.',
+          status: 'planning',
+          stage: 'planning',
+          progressMode: 'auto',
+          manualProgress: 30,
+          dueDate: ''
+        },
+        {
+          id: 'proj_ops',
+          name: 'Operations & Stakeholders',
+          category: 'business',
+          color: '#f87171',
+          description: 'Client deliverables, stakeholder alignment, governance, and project sign-offs.',
+          status: 'active',
+          stage: 'initiation',
+          progressMode: 'auto',
+          manualProgress: 80,
+          dueDate: ''
+        }
       ];
 
       const todayStr = new Date().toISOString().split('T')[0];
@@ -3376,12 +4904,30 @@
       tomorrowDate.setDate(tomorrowDate.getDate() + 1);
       const tomorrowStr = tomorrowDate.toISOString().split('T')[0];
 
+      const MONDAY_STATUSES = {
+        done: { id: 'done', label: 'Done', color: '#00c875', bg: 'var(--monday-done)' },
+        working_on_it: { id: 'working_on_it', label: 'Working on it', color: '#fdab3d', bg: 'var(--monday-working)' },
+        stuck: { id: 'stuck', label: 'Stuck', color: '#e2445c', bg: 'var(--monday-stuck)' },
+        in_review: { id: 'in_review', label: 'In Review', color: '#579bfc', bg: 'var(--monday-review)' },
+        not_started: { id: 'not_started', label: 'Ready', color: '#64748b', bg: 'var(--monday-ready)' }
+      };
+
+      const TASK_PRIORITIES = {
+        critical: { id: 'critical', label: 'Critical', color: '#ef4444', class: 'prio-critical' },
+        high: { id: 'high', label: 'High', color: '#f97316', class: 'prio-high' },
+        medium: { id: 'medium', label: 'Medium', color: '#eab308', class: 'prio-medium' },
+        low: { id: 'low', label: 'Low', color: '#64748b', class: 'prio-low' }
+      };
+
       const DEFAULT_TASKS = [
         {
           id: 'task_1',
           title: 'Draft Project Charter & Stakeholder Matrix',
           projectId: 'proj_ops',
+          category: 'inherit',
           stage: 'initiation',
+          status: 'working_on_it',
+          priority: 'high',
           estPomos: 2,
           completedPomos: 1,
           sitBlocks: 1,
@@ -3396,7 +4942,10 @@
           id: 'task_2',
           title: 'Build Work Breakdown Structure (WBS) & Schedule',
           projectId: 'proj_eng',
+          category: 'inherit',
           stage: 'planning',
+          status: 'not_started',
+          priority: 'critical',
           estPomos: 3,
           completedPomos: 0,
           sitBlocks: 0,
@@ -3411,7 +4960,10 @@
           id: 'task_3',
           title: 'Implement Core Data Architecture Deliverables',
           projectId: 'proj_eng',
+          category: 'inherit',
           stage: 'execution',
+          status: 'working_on_it',
+          priority: 'high',
           estPomos: 4,
           completedPomos: 2,
           sitBlocks: 1,
@@ -3426,7 +4978,10 @@
           id: 'task_4',
           title: 'KPI Verification & Variance Monitoring',
           projectId: 'proj_growth',
+          category: 'inherit',
           stage: 'monitoring',
+          status: 'in_review',
+          priority: 'medium',
           estPomos: 2,
           completedPomos: 0,
           sitBlocks: 0,
@@ -3441,7 +4996,10 @@
           id: 'task_5',
           title: 'Final Client Sign-off & Archive Documentation',
           projectId: 'proj_ops',
+          category: 'inherit',
           stage: 'closure',
+          status: 'done',
+          priority: 'low',
           estPomos: 1,
           completedPomos: 1,
           sitBlocks: 1,
@@ -3458,6 +5016,18 @@
       // ------------------------------------------------------------------------
       // 2. State & Storage Management
       // ------------------------------------------------------------------------
+      // Category Scope State: 'all' | 'work' | 'business'
+      let currentCategoryFilter = localStorage.getItem('ergoflow_category_filter') || 'all';
+
+      function getEffectiveTaskCategory(task) {
+        if (!task) return 'work';
+        if (task.category && task.category !== 'inherit') {
+          return task.category;
+        }
+        const proj = projects.find(p => p.id === task.projectId);
+        return (proj && proj.category) ? proj.category : 'work';
+      }
+
       let settings = loadSettings();
       let projects = loadProjects();
       let tasks = loadTasks();
@@ -3469,6 +5039,16 @@
       let selectedProjectFilter = 'all';
       let selectedStageFilter = 'all';
       let expandedProjectAccordions = {};
+
+      // Workspace State (Monday & Trello Hybrid)
+      let workspaceViewMode = localStorage.getItem('ergoflow_view_mode') || 'table';
+      let workspaceProjectFilter = 'all';
+      let workspaceStageFilter = 'all';
+      let workspaceSearchQuery = '';
+      let collapsedMondayGroups = {};
+      let activeStatusPickerTaskId = null;
+      let activePriorityPickerTaskId = null;
+      let isTimerDockOpen = false;
 
       // Timer runtime
       let currentStepIndex = 0;
@@ -3494,6 +5074,28 @@
         updateDailyGoalsUI();
       }
 
+      function getProjectProgress(proj, projTasks) {
+        if (!proj) return 0;
+        if (proj.progressMode === 'manual') {
+          return Math.max(0, Math.min(100, Math.round(proj.manualProgress !== undefined ? proj.manualProgress : 50)));
+        }
+        if (!projTasks || projTasks.length === 0) return 0;
+        const doneCount = projTasks.filter(t => t.completed).length;
+        return Math.round((doneCount / projTasks.length) * 100);
+      }
+
+      function getProjectStatusBadge(status) {
+        const map = {
+          planning: { label: 'Planning', bg: 'rgba(167, 139, 250, 0.15)', color: '#c4b5fd', border: 'rgba(167, 139, 250, 0.3)' },
+          active: { label: 'Active', bg: 'rgba(56, 189, 248, 0.15)', color: '#7dd3fc', border: 'rgba(56, 189, 248, 0.3)' },
+          on_track: { label: 'On Track', bg: 'rgba(52, 211, 153, 0.15)', color: '#6ee7b7', border: 'rgba(52, 211, 153, 0.3)' },
+          at_risk: { label: 'At Risk', bg: 'rgba(251, 113, 133, 0.15)', color: '#fda4af', border: 'rgba(251, 113, 133, 0.3)' },
+          on_hold: { label: 'On Hold', bg: 'rgba(251, 191, 36, 0.15)', color: '#fde68a', border: 'rgba(251, 191, 36, 0.3)' },
+          completed: { label: 'Completed', bg: 'rgba(16, 185, 129, 0.2)', color: '#a7f3d0', border: 'rgba(16, 185, 129, 0.4)' }
+        };
+        return map[status] || map.active;
+      }
+
       function loadProjects() {
         try {
           const raw = localStorage.getItem(STORAGE_KEYS.PROJECTS) || localStorage.getItem('ergoflow_projects_v2');
@@ -3502,6 +5104,15 @@
             if (Array.isArray(parsed) && parsed.length > 0) {
               return parsed.map(p => {
                 if (!p.pmiDocs) p.pmiDocs = getDefaultPmiDocs(p.name);
+                if (!p.status) p.status = 'active';
+                if (!p.stage) p.stage = 'execution';
+                if (!p.category) {
+                  p.category = (p.id === 'proj_growth' || p.id === 'proj_ops') ? 'business' : 'work';
+                }
+                if (!p.progressMode) p.progressMode = 'auto';
+                if (p.manualProgress === undefined) p.manualProgress = 50;
+                if (p.description === undefined) p.description = '';
+                if (p.dueDate === undefined) p.dueDate = '';
                 return p;
               });
             }
@@ -3515,7 +5126,11 @@
 
       function saveProjects() {
         try { localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(projects)); } catch (e) {}
+        updateCategoryCounts();
         renderProjects();
+        renderWorkspace();
+        renderTasks();
+        renderOperatingSystemDashboard();
         populateProjectDropdowns();
       }
 
@@ -3525,9 +5140,17 @@
           if (raw) {
             const parsed = JSON.parse(raw);
             if (Array.isArray(parsed) && parsed.length > 0) {
-              // Backward compatibility: ensure all tasks have PMI stages
+              // Backward compatibility: ensure all tasks have PMI stages, status, priority & category
               return parsed.map(t => {
                 if (!t.stage) t.stage = t.completed ? 'closure' : 'execution';
+                if (!t.status) {
+                  if (t.completed || t.stage === 'closure') t.status = 'done';
+                  else if ((t.completedPomos || 0) > 0 || t.stage === 'execution') t.status = 'working_on_it';
+                  else if (t.stage === 'monitoring') t.status = 'in_review';
+                  else t.status = 'not_started';
+                }
+                if (!t.priority) t.priority = 'medium';
+                if (!t.category) t.category = 'inherit';
                 return t;
               });
             }
@@ -3538,6 +5161,9 @@
 
       function saveTasks() {
         try { localStorage.setItem(STORAGE_KEYS.TASKS, JSON.stringify(tasks)); } catch (e) {}
+        updateCategoryCounts();
+        renderWorkspace();
+        renderProjects();
         renderTasks();
         renderKanban();
         renderOperatingSystemDashboard();
@@ -3556,6 +5182,7 @@
         activeTaskId = id;
         try { localStorage.setItem(STORAGE_KEYS.ACTIVE_TASK_ID, id); } catch (e) {}
         updateActiveTaskUI();
+        renderWorkspace();
         renderTasks();
         renderKanban();
       }
@@ -3960,8 +5587,77 @@
       }
 
       // ------------------------------------------------------------------------
-      // 5. Views Switching (Timer, OS, Kanban, Tasks, Goals)
+      // 5. Category Scope Engine & Views Switching (Projects, Tasks, OS, Goals, Timer)
       // ------------------------------------------------------------------------
+      function updateCategoryCounts() {
+        const workProjects = projects.filter(p => (p.category || 'work') === 'work').length;
+        const bizProjects = projects.filter(p => (p.category || 'work') === 'business').length;
+
+        const workTasks = tasks.filter(t => getEffectiveTaskCategory(t) === 'work').length;
+        const bizTasks = tasks.filter(t => getEffectiveTaskCategory(t) === 'business').length;
+
+        const elCatAll = document.getElementById('catCountAll');
+        if (elCatAll) elCatAll.textContent = `${tasks.length}`;
+
+        const elCatWork = document.getElementById('catCountWork');
+        if (elCatWork) elCatWork.textContent = `${workTasks}`;
+
+        const elCatBiz = document.getElementById('catCountBusiness');
+        if (elCatBiz) elCatBiz.textContent = `${bizTasks}`;
+
+        // Top tab badges
+        const elTabProjCount = document.getElementById('tabProjectCount');
+        if (elTabProjCount) {
+          const count = currentCategoryFilter === 'all'
+            ? projects.length
+            : (currentCategoryFilter === 'work' ? workProjects : bizProjects);
+          elTabProjCount.textContent = `${count}`;
+        }
+
+        const elTabTaskCount = document.getElementById('tabTaskCount');
+        if (elTabTaskCount) {
+          const count = currentCategoryFilter === 'all'
+            ? tasks.length
+            : (currentCategoryFilter === 'work' ? workTasks : bizTasks);
+          elTabTaskCount.textContent = `${count}`;
+        }
+
+        // Active state on all category buttons across header & projects view
+        document.querySelectorAll('.category-nav-pill').forEach(btn => {
+          const cat = btn.getAttribute('data-category');
+          btn.classList.toggle('active', cat === currentCategoryFilter);
+        });
+      }
+
+      function setCategoryFilter(category) {
+        currentCategoryFilter = category;
+        try {
+          localStorage.setItem('ergoflow_category_filter', category);
+        } catch (e) {}
+
+        // If filtering tasks by a project that belongs to another category, reset project filter
+        if (workspaceProjectFilter !== 'all') {
+          const proj = projects.find(p => p.id === workspaceProjectFilter);
+          if (proj && currentCategoryFilter !== 'all' && (proj.category || 'work') !== currentCategoryFilter) {
+            workspaceProjectFilter = 'all';
+          }
+        }
+
+        updateCategoryCounts();
+        renderProjects();
+        renderWorkspace();
+        renderOperatingSystemDashboard();
+      }
+
+      // Delegate category pill clicks everywhere (header and project view)
+      document.addEventListener('click', (e) => {
+        const catBtn = e.target.closest('.category-nav-pill');
+        if (catBtn) {
+          const cat = catBtn.getAttribute('data-category');
+          if (cat) setCategoryFilter(cat);
+        }
+      });
+
       function switchView(targetViewId) {
         document.querySelectorAll('.nav-tab-btn').forEach(btn => {
           const isTarget = btn.getAttribute('data-target') === targetViewId;
@@ -3973,6 +5669,10 @@
           panel.classList.toggle('active', panel.id === targetViewId);
         });
 
+        updateCategoryCounts();
+
+        if (targetViewId === 'viewWorkspace') renderWorkspace();
+        if (targetViewId === 'viewProjects') renderProjects();
         if (targetViewId === 'viewOS') renderOperatingSystemDashboard();
         if (targetViewId === 'viewKanban') renderKanban();
         if (targetViewId === 'viewTasks') renderTasks();
@@ -3990,7 +5690,7 @@
       });
 
       // ------------------------------------------------------------------------
-      // 6. UI Synchronization & Renders
+      // 6. UI Synchronization & Renders (Top-bar, Dock Drawer & Main Views)
       // ------------------------------------------------------------------------
       function formatTime(sec) {
         const m = Math.floor(sec / 60);
@@ -3999,16 +5699,37 @@
       }
 
       function updateClockDisplay() {
-        document.getElementById('timeDigits').textContent = formatTime(remainingSeconds);
+        const timeStr = formatTime(remainingSeconds);
+        const elTime = document.getElementById('timeDigits');
+        if (elTime) elTime.textContent = timeStr;
+
+        const elHeader = document.getElementById('headerTimerDigits');
+        if (elHeader) elHeader.textContent = timeStr;
+
+        const elDock = document.getElementById('dockTimeDigits');
+        if (elDock) elDock.textContent = timeStr;
       }
 
       function updateProgressRing() {
-        const ring = document.getElementById('progressRingFill');
-        const r = ring.r.baseVal.value || 125;
-        const circ = 2 * Math.PI * r;
-        ring.style.strokeDasharray = `${circ}`;
         const prog = (totalSeconds - remainingSeconds) / totalSeconds;
-        ring.style.strokeDashoffset = `${circ * (1 - prog)}`;
+
+        // Main timer ring
+        const ring = document.getElementById('progressRingFill');
+        if (ring) {
+          const r = ring.r.baseVal.value || 125;
+          const circ = 2 * Math.PI * r;
+          ring.style.strokeDasharray = `${circ}`;
+          ring.style.strokeDashoffset = `${circ * (1 - prog)}`;
+        }
+
+        // Dock timer ring
+        const dockRing = document.getElementById('dockProgressRingFill');
+        if (dockRing) {
+          const rDock = dockRing.r.baseVal.value || 125;
+          const circDock = 2 * Math.PI * rDock;
+          dockRing.style.strokeDasharray = `${circDock}`;
+          dockRing.style.strokeDashoffset = `${circDock * (1 - prog)}`;
+        }
       }
 
       function updateDocumentTitle() {
@@ -4019,21 +5740,57 @@
       }
 
       function updateControlsUI() {
+        // Main view timer controls
         const iconPlay = document.getElementById('iconPlay');
         const iconPause = document.getElementById('iconPause');
         const playPauseText = document.getElementById('playPauseText');
         const btnPlayPause = document.getElementById('btnPlayPause');
 
-        if (isRunning) {
-          iconPlay.style.display = 'none';
-          iconPause.style.display = 'block';
-          playPauseText.textContent = 'Pause';
-          btnPlayPause.setAttribute('aria-label', 'Pause Timer');
-        } else {
-          iconPlay.style.display = 'block';
-          iconPause.style.display = 'none';
-          playPauseText.textContent = remainingSeconds < totalSeconds ? 'Resume' : 'Start Focus';
-          btnPlayPause.setAttribute('aria-label', 'Start Timer');
+        if (btnPlayPause && iconPlay && iconPause && playPauseText) {
+          if (isRunning) {
+            iconPlay.style.display = 'none';
+            iconPause.style.display = 'block';
+            playPauseText.textContent = 'Pause';
+            btnPlayPause.setAttribute('aria-label', 'Pause Timer');
+          } else {
+            iconPlay.style.display = 'block';
+            iconPause.style.display = 'none';
+            playPauseText.textContent = remainingSeconds < totalSeconds ? 'Resume' : 'Start Focus';
+            btnPlayPause.setAttribute('aria-label', 'Start Timer');
+          }
+        }
+
+        // Header timer pill play/pause
+        const headerIconPlay = document.getElementById('headerIconPlay');
+        const headerIconPause = document.getElementById('headerIconPause');
+        const headerBtnPlayPause = document.getElementById('headerBtnPlayPause');
+        if (headerBtnPlayPause && headerIconPlay && headerIconPause) {
+          if (isRunning) {
+            headerIconPlay.style.display = 'none';
+            headerIconPause.style.display = 'block';
+            headerBtnPlayPause.setAttribute('title', 'Pause Timer (Space)');
+          } else {
+            headerIconPlay.style.display = 'block';
+            headerIconPause.style.display = 'none';
+            headerBtnPlayPause.setAttribute('title', 'Start Focus Timer (Space)');
+          }
+        }
+
+        // Dock timer play/pause
+        const dockIconPlay = document.getElementById('dockIconPlay');
+        const dockIconPause = document.getElementById('dockIconPause');
+        const dockPlayPauseText = document.getElementById('dockPlayPauseText');
+        const btnDockPlayPause = document.getElementById('btnDockPlayPause');
+        if (btnDockPlayPause && dockIconPlay && dockIconPause && dockPlayPauseText) {
+          if (isRunning) {
+            dockIconPlay.style.display = 'none';
+            dockIconPause.style.display = 'block';
+            dockPlayPauseText.textContent = 'Pause';
+          } else {
+            dockIconPlay.style.display = 'block';
+            dockIconPause.style.display = 'none';
+            dockPlayPauseText.textContent = remainingSeconds < totalSeconds ? 'Resume' : 'Start Focus';
+          }
         }
       }
 
@@ -4044,11 +5801,16 @@
       }
 
       function updateMatrixDurationsInUI() {
-        document.getElementById('matrixDur0').textContent = `${settings.durSit}m`;
-        document.getElementById('matrixDur1').textContent = `${settings.durShortBreak1}m`;
-        document.getElementById('matrixDur2').textContent = `${settings.durStand}m`;
-        document.getElementById('matrixDur3').textContent = `${settings.durShortBreak2}m`;
-        document.getElementById('matrixDur4').textContent = `${settings.durLongBreak}m`;
+        const m0 = document.getElementById('matrixDur0');
+        if (m0) m0.textContent = `${settings.durSit}m`;
+        const m1 = document.getElementById('matrixDur1');
+        if (m1) m1.textContent = `${settings.durShortBreak1}m`;
+        const m2 = document.getElementById('matrixDur2');
+        if (m2) m2.textContent = `${settings.durStand}m`;
+        const m3 = document.getElementById('matrixDur3');
+        if (m3) m3.textContent = `${settings.durShortBreak2}m`;
+        const m4 = document.getElementById('matrixDur4');
+        if (m4) m4.textContent = `${settings.durLongBreak}m`;
       }
 
       function updateActiveTaskUI() {
@@ -4061,32 +5823,70 @@
         const activeTaskPomoCount = document.getElementById('activeTaskPomoCount');
         const btnCompleteActiveTask = document.getElementById('btnCompleteActiveTask');
 
+        // Dock active task references
+        const dockActiveTaskTitle = document.getElementById('dockActiveTaskTitle');
+        const dockActiveTaskStage = document.getElementById('dockActiveTaskStage');
+        const dockActiveTaskPomos = document.getElementById('dockActiveTaskPomos');
+        const dockPomoGoalText = document.getElementById('dockPomoGoalText');
+
         if (activeTask) {
-          activeTaskTitle.textContent = activeTask.title;
           const stageObj = PMI_STAGES.find(s => s.id === activeTask.stage) || PMI_STAGES[2];
-          activeTaskStageBadge.className = `pmi-stage-badge ${stageObj.badgeClass}`;
-          activeTaskStageBadge.textContent = stageObj.name;
-
           const proj = projects.find(p => p.id === activeTask.projectId) || { name: 'General', color: '#38bdf8' };
-          activeProjectName.textContent = proj.name;
-          activeProjectColor.style.background = proj.color;
 
-          activeScheduleTimeBadge.textContent = activeTask.timeWindow ? `· Window: ${activeTask.timeWindow}` : (activeTask.dueDate ? `· Due: ${activeTask.dueDate}` : '');
-          activeTaskPomoCount.textContent = `${activeTask.completedPomos || 0}/${activeTask.estPomos || 1}`;
-          btnCompleteActiveTask.style.display = activeTask.completed ? 'none' : 'inline-flex';
+          if (activeTaskTitle) activeTaskTitle.textContent = activeTask.title;
+          if (activeTaskStageBadge) {
+            activeTaskStageBadge.className = `pmi-stage-badge ${stageObj.badgeClass}`;
+            activeTaskStageBadge.textContent = stageObj.name;
+          }
+          if (activeProjectName) activeProjectName.textContent = proj.name;
+          if (activeProjectColor) activeProjectColor.style.background = proj.color;
+          if (activeScheduleTimeBadge) {
+            activeScheduleTimeBadge.textContent = activeTask.timeWindow ? `· Window: ${activeTask.timeWindow}` : (activeTask.dueDate ? `· Due: ${activeTask.dueDate}` : '');
+          }
+          if (activeTaskPomoCount) {
+            activeTaskPomoCount.textContent = `${activeTask.completedPomos || 0}/${activeTask.estPomos || 1}`;
+          }
+          if (btnCompleteActiveTask) {
+            btnCompleteActiveTask.style.display = activeTask.completed ? 'none' : 'inline-flex';
+          }
+
+          // Dock updates
+          if (dockActiveTaskTitle) dockActiveTaskTitle.textContent = activeTask.title;
+          if (dockActiveTaskStage) {
+            dockActiveTaskStage.className = `pmi-stage-badge ${stageObj.badgeClass}`;
+            dockActiveTaskStage.textContent = stageObj.name;
+          }
+          if (dockActiveTaskPomos) {
+            dockActiveTaskPomos.textContent = `🍅 ${activeTask.completedPomos || 0}/${activeTask.estPomos || 1}`;
+          }
         } else {
-          activeTaskTitle.textContent = 'General Work OS Session';
-          activeTaskStageBadge.className = 'pmi-stage-badge pmi-stage-execution';
-          activeTaskStageBadge.textContent = '3. Execution';
-          activeProjectName.textContent = 'General';
-          activeProjectColor.style.background = '#38bdf8';
-          activeScheduleTimeBadge.textContent = '· Scheduled: Now';
-          activeTaskPomoCount.textContent = `${stats.completedPomos || 0} today`;
-          btnCompleteActiveTask.style.display = 'none';
+          if (activeTaskTitle) activeTaskTitle.textContent = 'General Work OS Session';
+          if (activeTaskStageBadge) {
+            activeTaskStageBadge.className = 'pmi-stage-badge pmi-stage-execution';
+            activeTaskStageBadge.textContent = '3. Execution';
+          }
+          if (activeProjectName) activeProjectName.textContent = 'General';
+          if (activeProjectColor) activeProjectColor.style.background = '#38bdf8';
+          if (activeScheduleTimeBadge) activeScheduleTimeBadge.textContent = '· Scheduled: Now';
+          if (activeTaskPomoCount) activeTaskPomoCount.textContent = `${stats.completedPomos || 0} today`;
+          if (btnCompleteActiveTask) btnCompleteActiveTask.style.display = 'none';
+
+          if (dockActiveTaskTitle) dockActiveTaskTitle.textContent = 'General Work OS Session';
+          if (dockActiveTaskStage) {
+            dockActiveTaskStage.className = 'pmi-stage-badge pmi-stage-execution';
+            dockActiveTaskStage.textContent = '3. Execution';
+          }
+          if (dockActiveTaskPomos) dockActiveTaskPomos.textContent = `🍅 ${stats.completedPomos || 0} today`;
         }
 
         const activeCount = tasks.filter(t => !t.completed).length;
-        document.getElementById('tabTaskCount').textContent = activeCount;
+        const tabTaskCount = document.getElementById('tabTaskCount');
+        if (tabTaskCount) tabTaskCount.textContent = activeCount;
+
+        const headerPomoProgress = document.getElementById('headerPomoProgress');
+        if (headerPomoProgress) headerPomoProgress.textContent = `${stats.completedPomos || 0}/${settings.dailyGoalPomos || 8}`;
+
+        if (dockPomoGoalText) dockPomoGoalText.textContent = `🍅 ${stats.completedPomos || 0}/${settings.dailyGoalPomos || 8}`;
       }
 
       function updateTimerUI() {
@@ -4101,23 +5901,59 @@
         const phaseSubtext = document.getElementById('phaseSubtext');
 
         if (step.type === 'focus') {
-          stateBadgeText.textContent = post === 'sit' ? 'Sit (Focus)' : 'Stand (Focus)';
-          postureOverrideText.textContent = post === 'sit' ? 'Switch to Stand' : 'Switch to Sit';
-          btnPostureOverride.style.display = 'inline-flex';
-          pomoCycleText.textContent = currentStepIndex === 0 ? 'Pomodoro 1 of Cycle' : 'Pomodoro 2 of Cycle';
+          if (stateBadgeText) stateBadgeText.textContent = post === 'sit' ? 'Sit (Focus)' : 'Stand (Focus)';
+          if (postureOverrideText) postureOverrideText.textContent = post === 'sit' ? 'Switch to Stand' : 'Switch to Sit';
+          if (btnPostureOverride) btnPostureOverride.style.display = 'inline-flex';
+          if (pomoCycleText) pomoCycleText.textContent = currentStepIndex === 0 ? 'Pomodoro 1 of Cycle' : 'Pomodoro 2 of Cycle';
         } else {
-          stateBadgeText.textContent = step.name;
-          btnPostureOverride.style.display = 'none';
-          pomoCycleText.textContent = 'Active Recovery';
+          if (stateBadgeText) stateBadgeText.textContent = step.name;
+          if (btnPostureOverride) btnPostureOverride.style.display = 'none';
+          if (pomoCycleText) pomoCycleText.textContent = 'Active Recovery';
         }
 
-        if (currentStepIndex === 0) phaseSubtext.textContent = 'Focus Block 1 of 2 (Sitting)';
-        else if (currentStepIndex === 1) phaseSubtext.textContent = 'Active 5m Movement Break';
-        else if (currentStepIndex === 2) phaseSubtext.textContent = 'Focus Block 2 of 2 (Standing)';
-        else if (currentStepIndex === 3) phaseSubtext.textContent = 'Active 5m Movement Break';
-        else phaseSubtext.textContent = 'Off-desk Recharge & Rest';
+        let subtextStr = 'Off-desk Recharge & Rest';
+        if (currentStepIndex === 0) subtextStr = 'Focus Block 1 of 2 (Sitting)';
+        else if (currentStepIndex === 1) subtextStr = 'Active 5m Movement Break';
+        else if (currentStepIndex === 2) subtextStr = 'Focus Block 2 of 2 (Standing)';
+        else if (currentStepIndex === 3) subtextStr = 'Active 5m Movement Break';
+        if (phaseSubtext) phaseSubtext.textContent = subtextStr;
 
-        document.getElementById('coachingTipText').innerHTML = step.tip;
+        const coachingTipEl = document.getElementById('coachingTipText');
+        if (coachingTipEl) coachingTipEl.innerHTML = step.tip;
+
+        // Synchronize Persistent Top-bar Timer Pill
+        const headerTimerPill = document.getElementById('headerTimerPill');
+        const headerTimerPosture = document.getElementById('headerTimerPosture');
+        if (headerTimerPill && headerTimerPosture) {
+          headerTimerPill.classList.remove('pill-sit', 'pill-stand', 'pill-break');
+          if (step.type === 'focus') {
+            headerTimerPill.classList.add(post === 'sit' ? 'pill-sit' : 'pill-stand');
+            headerTimerPosture.textContent = post === 'sit' ? 'Sit Focus' : 'Stand Focus';
+          } else {
+            headerTimerPill.classList.add('pill-break');
+            headerTimerPosture.textContent = step.name;
+          }
+        }
+
+        // Synchronize Collapsible Dock Elements
+        const dockStateBadgeText = document.getElementById('dockStateBadgeText');
+        const dockPostureOverrideText = document.getElementById('dockPostureOverrideText');
+        const btnDockPostureOverride = document.getElementById('btnDockPostureOverride');
+        const dockPhaseSubtext = document.getElementById('dockPhaseSubtext');
+        const dockCoachingTipText = document.getElementById('dockCoachingTipText');
+
+        if (dockStateBadgeText) {
+          if (step.type === 'focus') {
+            dockStateBadgeText.textContent = post === 'sit' ? 'Sit (Focus)' : 'Stand (Focus)';
+            if (dockPostureOverrideText) dockPostureOverrideText.textContent = post === 'sit' ? 'Switch to Stand' : 'Switch to Sit';
+            if (btnDockPostureOverride) btnDockPostureOverride.style.display = 'inline-flex';
+          } else {
+            dockStateBadgeText.textContent = step.name;
+            if (btnDockPostureOverride) btnDockPostureOverride.style.display = 'none';
+          }
+        }
+        if (dockPhaseSubtext) dockPhaseSubtext.textContent = subtextStr;
+        if (dockCoachingTipText) dockCoachingTipText.innerHTML = step.tip;
 
         updateMatrixStrip();
         updateClockDisplay();
@@ -4126,6 +5962,1063 @@
         updateDocumentTitle();
         updateActiveTaskUI();
       }
+
+      // ------------------------------------------------------------------------
+      // 6B. Workspace Engine (Monday.com Grouped Table & Trello Board Hybrid)
+      // ------------------------------------------------------------------------
+      function toggleTimerDock(forceState) {
+        const drawer = document.getElementById('timerDockDrawer');
+        const backdrop = document.getElementById('timerDockBackdrop');
+        if (!drawer || !backdrop) return;
+
+        isTimerDockOpen = (typeof forceState === 'boolean') ? forceState : !isTimerDockOpen;
+
+        drawer.classList.toggle('open', isTimerDockOpen);
+        backdrop.classList.toggle('open', isTimerDockOpen);
+
+        if (isTimerDockOpen) {
+          updateTimerUI();
+        }
+      }
+
+      function toggleWorkspaceView(mode) {
+        workspaceViewMode = mode;
+        try { localStorage.setItem('ergoflow_view_mode', mode); } catch (e) {}
+
+        const btnTable = document.getElementById('btnSwitchTableView');
+        const btnBoard = document.getElementById('btnSwitchBoardView');
+        const viewTable = document.getElementById('workspaceTableView');
+        const viewBoard = document.getElementById('workspaceBoardView');
+
+        if (btnTable && btnBoard && viewTable && viewBoard) {
+          btnTable.classList.toggle('active', mode === 'table');
+          btnTable.setAttribute('aria-selected', mode === 'table' ? 'true' : 'false');
+          btnBoard.classList.toggle('active', mode === 'board');
+          btnBoard.setAttribute('aria-selected', mode === 'board' ? 'true' : 'false');
+
+          if (mode === 'table') {
+            viewTable.style.display = 'block';
+            viewBoard.style.display = 'none';
+          } else {
+            viewTable.style.display = 'none';
+            viewBoard.style.display = 'flex';
+          }
+        }
+
+        renderWorkspace();
+      }
+
+      function populateWorkspaceProjectPills() {
+        const container = document.getElementById('workspaceProjectPills');
+        if (!container) return;
+        container.innerHTML = '';
+
+        // Filter projects by currentCategoryFilter
+        const visibleProjects = currentCategoryFilter === 'all'
+          ? projects
+          : projects.filter(p => (p.category || 'work') === currentCategoryFilter);
+
+        // If current workspaceProjectFilter is not in visibleProjects, reset to 'all'
+        if (workspaceProjectFilter !== 'all' && !visibleProjects.some(p => p.id === workspaceProjectFilter)) {
+          workspaceProjectFilter = 'all';
+        }
+
+        const catTasks = currentCategoryFilter === 'all'
+          ? tasks
+          : tasks.filter(t => getEffectiveTaskCategory(t) === currentCategoryFilter);
+
+        // All Projects Pill
+        const allBtn = document.createElement('button');
+        allBtn.className = `workspace-project-pill ${workspaceProjectFilter === 'all' ? 'active' : ''}`;
+        allBtn.innerHTML = `<span>All Projects</span> <span style="font-size:0.68rem; opacity:0.75; font-family:var(--font-mono);">(${catTasks.length})</span>`;
+        allBtn.onclick = () => {
+          workspaceProjectFilter = 'all';
+          populateWorkspaceProjectPills();
+          renderWorkspace();
+        };
+        container.appendChild(allBtn);
+
+        // Project specific pills
+        visibleProjects.forEach(p => {
+          const pTasks = tasks.filter(t => t.projectId === p.id);
+          const btn = document.createElement('button');
+          btn.className = `workspace-project-pill ${workspaceProjectFilter === p.id ? 'active' : ''}`;
+          btn.innerHTML = `
+            <span class="project-color-dot" style="background:${p.color}; width:8px; height:8px;"></span>
+            <span>${escapeHtml(p.name)}</span>
+            <span style="font-size:0.68rem; opacity:0.75; font-family:var(--font-mono);">(${pTasks.length})</span>
+          `;
+          btn.onclick = () => {
+            workspaceProjectFilter = p.id;
+            populateWorkspaceProjectPills();
+            renderWorkspace();
+          };
+          container.appendChild(btn);
+        });
+      }
+
+      function highlightSearchMatch(text, query) {
+        if (!text) return '';
+        const escaped = escapeHtml(text);
+        if (!query || !query.trim()) return escaped;
+        const q = query.trim();
+        const regexSafe = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`(${regexSafe})`, 'gi');
+        return escaped.replace(regex, '<mark class="search-match-highlight">$1</mark>');
+      }
+
+      function updateWorkspaceSearchUI(matchingCount) {
+        const searchBox = document.getElementById('workspaceSearchBox');
+        const clearBtn = document.getElementById('btnWorkspaceSearchClear');
+        const countBadge = document.getElementById('workspaceSearchMatchCount');
+        const kbdHint = document.getElementById('searchKbdHint');
+
+        const hasQuery = !!(workspaceSearchQuery && workspaceSearchQuery.trim() !== '');
+
+        if (searchBox) searchBox.classList.toggle('has-query', hasQuery);
+        if (clearBtn) clearBtn.style.display = hasQuery ? 'inline-flex' : 'none';
+        if (kbdHint) kbdHint.style.display = hasQuery ? 'none' : 'inline-block';
+
+        if (countBadge) {
+          if (hasQuery) {
+            countBadge.style.display = 'inline-flex';
+            countBadge.textContent = `${matchingCount} match${matchingCount === 1 ? '' : 'es'}`;
+          } else {
+            countBadge.style.display = 'none';
+          }
+        }
+      }
+
+      function getFilteredWorkspaceTasks() {
+        let list = tasks.slice();
+
+        // 1. Category Filter (All, Work, Business)
+        if (currentCategoryFilter !== 'all') {
+          list = list.filter(t => getEffectiveTaskCategory(t) === currentCategoryFilter);
+        }
+
+        // 2. Project Filter
+        if (workspaceProjectFilter !== 'all') {
+          list = list.filter(t => t.projectId === workspaceProjectFilter);
+        }
+
+        // 3. Stage Filter
+        if (workspaceStageFilter !== 'all') {
+          list = list.filter(t => (t.stage || 'execution') === workspaceStageFilter);
+        }
+
+        // 4. Real-time Search Filter across Title, Project, Category, Status, Priority, Stage, Posture & Dates
+        if (workspaceSearchQuery && workspaceSearchQuery.trim() !== '') {
+          const q = workspaceSearchQuery.trim().toLowerCase();
+          list = list.filter(t => {
+            const proj = projects.find(p => p.id === t.projectId);
+            const projName = proj ? proj.name.toLowerCase() : '';
+            const effCat = getEffectiveTaskCategory(t).toLowerCase();
+            const statusKey = t.status || (t.completed ? 'done' : 'working_on_it');
+            const statusLabel = MONDAY_STATUSES[statusKey]?.label?.toLowerCase() || '';
+            const prioKey = t.priority || 'medium';
+            const prioLabel = TASK_PRIORITIES[prioKey]?.label?.toLowerCase() || '';
+            const stageObj = PMI_STAGES.find(s => s.id === (t.stage || 'execution'));
+            const stageName = stageObj?.name?.toLowerCase() || '';
+
+            const titleMatch = t.title && t.title.toLowerCase().includes(q);
+            const projMatch = projName.includes(q);
+            const catMatch = effCat.includes(q);
+            const statusMatch = statusKey.includes(q) || statusLabel.includes(q) || (t.completed && ('done completed'.includes(q)));
+            const prioMatch = prioKey.includes(q) || prioLabel.includes(q);
+            const stageMatch = (t.stage && t.stage.toLowerCase().includes(q)) || stageName.includes(q);
+            const dateMatch = t.dueDate && t.dueDate.toLowerCase().includes(q);
+            const postureMatch = t.posturePref && (
+              t.posturePref.toLowerCase().includes(q) ||
+              (t.posturePref === 'sit' && 'sitting'.includes(q)) ||
+              (t.posturePref === 'stand' && 'standing'.includes(q))
+            );
+
+            return titleMatch || projMatch || catMatch || statusMatch || prioMatch || stageMatch || dateMatch || postureMatch;
+          });
+        }
+
+        return list;
+      }
+
+      function renderWorkspace() {
+        const viewTable = document.getElementById('workspaceTableView');
+        const viewBoard = document.getElementById('workspaceBoardView');
+        if (!viewTable || !viewBoard) return;
+
+        populateWorkspaceProjectPills();
+
+        const filteredTasks = getFilteredWorkspaceTasks();
+        updateWorkspaceSearchUI(filteredTasks.length);
+
+        if (workspaceViewMode === 'table') {
+          viewTable.style.display = 'block';
+          viewBoard.style.display = 'none';
+          renderMondayTable(filteredTasks);
+        } else {
+          viewTable.style.display = 'none';
+          viewBoard.style.display = 'flex';
+          renderTrelloBoard(filteredTasks);
+        }
+      }
+
+      // Monday.com Grouped Spreadsheet Renderer
+      function renderMondayTable(filteredTasks) {
+        const container = document.getElementById('workspaceTableView');
+        if (!container) return;
+        container.innerHTML = '';
+
+        if (filteredTasks.length === 0 && workspaceSearchQuery && workspaceSearchQuery.trim() !== '') {
+          container.innerHTML = `
+            <div class="workspace-search-empty-state">
+              <div class="search-empty-icon">🔍</div>
+              <div class="search-empty-title">No deliverables found matching "${escapeHtml(workspaceSearchQuery)}"</div>
+              <p class="search-empty-subtitle">We couldn't find any tasks matching your search query. Try searching for a different keyword, project, or status.</p>
+              <button type="button" class="btn-action-sm" data-action="clear-workspace-search" style="padding:0.4rem 1rem; font-size:0.8rem; margin-top:0.25rem;">
+                ✕ Clear Search
+              </button>
+            </div>
+          `;
+          return;
+        }
+
+        // Group by 5 PMI Stages
+        const stagesToRender = workspaceStageFilter === 'all'
+          ? PMI_STAGES
+          : PMI_STAGES.filter(s => s.id === workspaceStageFilter);
+
+        stagesToRender.forEach(stage => {
+          const groupTasks = filteredTasks.filter(t => (t.stage || 'execution') === stage.id);
+          const isCollapsed = !!collapsedMondayGroups[stage.id];
+
+          // Battery status stats for this group
+          const counts = { done: 0, working_on_it: 0, stuck: 0, in_review: 0, not_started: 0 };
+          let totalGroupPomos = 0;
+          let estGroupPomos = 0;
+
+          groupTasks.forEach(t => {
+            const st = t.status || (t.completed ? 'done' : 'working_on_it');
+            if (counts[st] !== undefined) counts[st]++;
+            else counts.not_started++;
+
+            totalGroupPomos += (t.completedPomos || 0);
+            estGroupPomos += (t.estPomos || 1);
+          });
+
+          const total = groupTasks.length;
+          const donePct = total > 0 ? (counts.done / total) * 100 : 0;
+          const workingPct = total > 0 ? (counts.working_on_it / total) * 100 : 0;
+          const stuckPct = total > 0 ? (counts.stuck / total) * 100 : 0;
+          const reviewPct = total > 0 ? (counts.in_review / total) * 100 : 0;
+          const readyPct = total > 0 ? (counts.not_started / total) * 100 : 0;
+
+          const groupCard = document.createElement('div');
+          groupCard.className = `monday-group-card ${isCollapsed ? 'is-collapsed' : ''}`;
+          groupCard.setAttribute('data-stage-id', stage.id);
+
+          // Group Header
+          groupCard.innerHTML = `
+            <div class="monday-group-header" data-action="toggle-group" data-stage="${stage.id}">
+              <div class="monday-group-left">
+                <span class="group-collapse-arrow">${isCollapsed ? '▶' : '▼'}</span>
+                <span class="monday-group-title" style="color:${stage.color};">${stage.name}</span>
+                <span class="group-count-badge">${groupTasks.length} task${groupTasks.length === 1 ? '' : 's'}</span>
+              </div>
+
+              <!-- Signature Monday.com Status Battery Bar -->
+              <div class="monday-battery-wrapper" title="Status: ${counts.done} Done, ${counts.working_on_it} Working, ${counts.stuck} Stuck, ${counts.in_review} Review, ${counts.not_started} Ready">
+                <div class="monday-battery-bar">
+                  ${counts.done > 0 ? `<div class="monday-battery-seg seg-done" style="width:${donePct}%;"></div>` : ''}
+                  ${counts.working_on_it > 0 ? `<div class="monday-battery-seg seg-working" style="width:${workingPct}%;"></div>` : ''}
+                  ${counts.stuck > 0 ? `<div class="monday-battery-seg seg-stuck" style="width:${stuckPct}%;"></div>` : ''}
+                  ${counts.in_review > 0 ? `<div class="monday-battery-seg seg-review" style="width:${reviewPct}%;"></div>` : ''}
+                  ${counts.not_started > 0 ? `<div class="monday-battery-seg seg-ready" style="width:${readyPct}%;"></div>` : ''}
+                  ${total === 0 ? `<div class="monday-battery-seg seg-ready" style="width:100%; opacity:0.3;"></div>` : ''}
+                </div>
+                <span class="monday-battery-label">${total > 0 ? Math.round(donePct) + '% Done' : 'Empty'}</span>
+              </div>
+            </div>
+
+            <!-- Table Rows Container -->
+            <div class="monday-table-wrapper" style="${isCollapsed ? 'display:none;' : ''}">
+              <table class="monday-table">
+                <thead>
+                  <tr>
+                    <th style="width:40px; text-align:center;">#</th>
+                    <th style="min-width:240px;">Deliverable Item</th>
+                    <th style="width:130px;">Project</th>
+                    <th style="width:95px; text-align:center;">Category</th>
+                    <th style="width:125px; text-align:center;">Status</th>
+                    <th style="width:105px; text-align:center;">Priority</th>
+                    <th style="width:115px; text-align:center;">Pomodoros</th>
+                    <th style="width:105px;">Due Date</th>
+                    <th style="width:75px; text-align:center;">Posture</th>
+                    <th style="width:95px; text-align:right;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="groupBody_${stage.id}">
+                  ${renderMondayRowsHtml(groupTasks, stage)}
+                </tbody>
+              </table>
+
+              <!-- Inline Quick Task Add Row (Monday.com Signature) -->
+              <div class="monday-inline-add-row" data-stage="${stage.id}">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <input type="text" class="monday-inline-input" placeholder="+ Add task to ${stage.name}..." data-stage="${stage.id}">
+                <button type="button" class="btn-action-sm monday-inline-btn" data-action="submit-inline-task" data-stage="${stage.id}">Add</button>
+              </div>
+
+              <!-- Group Summary Bar -->
+              <div class="monday-group-footer">
+                <span style="font-size:0.75rem; color:var(--text-dim);">
+                  ${groupTasks.length} items in ${stage.name} · Invested: <strong style="color:#fca5a5; font-family:var(--font-mono);">🍅 ${totalGroupPomos}/${estGroupPomos}</strong>
+                </span>
+                <span style="font-size:0.75rem; color:var(--text-dim); font-family:var(--font-mono);">
+                  ${counts.done}/${total} Done (${total > 0 ? Math.round(donePct) : 0}%)
+                </span>
+              </div>
+            </div>
+          `;
+
+          container.appendChild(groupCard);
+        });
+      }
+
+      function renderMondayRowsHtml(groupTasks, stage) {
+        if (groupTasks.length === 0) {
+          if (workspaceSearchQuery && workspaceSearchQuery.trim() !== '') {
+            return `
+              <tr>
+                <td colspan="10" style="text-align:center; padding:1.25rem; color:var(--text-dim); font-size:0.8rem; font-style:italic;">
+                  No deliverables matching "${escapeHtml(workspaceSearchQuery)}" in ${stage.name}.
+                </td>
+              </tr>
+            `;
+          }
+          return `
+            <tr>
+              <td colspan="10" style="text-align:center; padding:1.25rem; color:var(--text-dim); font-size:0.8rem; font-style:italic;">
+                No deliverables currently in ${stage.name}. Use the input below to add one.
+              </td>
+            </tr>
+          `;
+        }
+
+        return groupTasks.map((task, idx) => {
+          const isActive = task.id === activeTaskId;
+          const proj = projects.find(p => p.id === task.projectId) || { name: 'General', color: '#38bdf8' };
+          const effCat = getEffectiveTaskCategory(task);
+          const statusKey = task.status || (task.completed ? 'done' : 'working_on_it');
+          const statusObj = MONDAY_STATUSES[statusKey] || MONDAY_STATUSES.not_started;
+          const prioKey = task.priority || 'medium';
+          const prioObj = TASK_PRIORITIES[prioKey] || TASK_PRIORITIES.medium;
+
+          const isOverdue = task.dueDate && !task.completed && task.dueDate < todayStr;
+          const isToday = task.dueDate === todayStr;
+
+          return `
+            <tr class="monday-row ${isActive ? 'is-active-row' : ''} ${task.completed ? 'is-done-row' : ''}" data-task-id="${task.id}">
+              <td style="text-align:center;">
+                <button type="button" class="task-checkbox" data-action="toggle-task-done" data-task-id="${task.id}" title="${task.completed ? 'Mark incomplete' : 'Mark complete'}">
+                  ${task.completed ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
+                </button>
+              </td>
+
+              <!-- Deliverable Title (with Search Highlighting) -->
+              <td>
+                <div class="monday-title-cell" data-action="focus-task" data-task-id="${task.id}" title="Click to set as active focus task">
+                  <span class="monday-task-text ${task.completed ? 'completed-text' : ''}">${highlightSearchMatch(task.title, workspaceSearchQuery)}</span>
+                  ${isActive ? '<span class="monday-active-badge">ACTIVE</span>' : ''}
+                </div>
+              </td>
+
+              <!-- Project Pill -->
+              <td>
+                <span class="project-pill" style="padding:0.15rem 0.45rem; font-size:0.7rem; max-width:130px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                  <span class="project-color-dot" style="background:${proj.color}; width:7px; height:7px;"></span>
+                  <span>${highlightSearchMatch(proj.name, workspaceSearchQuery)}</span>
+                </span>
+              </td>
+
+              <!-- Category Tag (Work vs Business) -->
+              <td style="text-align:center; padding:0.25rem 0.35rem;">
+                <span class="cat-tag cat-tag-${effCat}">
+                  <span class="cat-dot cat-dot-${effCat}"></span>
+                  <span>${effCat === 'work' ? 'Work' : 'Business'}</span>
+                </span>
+              </td>
+
+              <!-- Monday Signature Clickable Status Block -->
+              <td style="text-align:center; padding:0.25rem 0.35rem;">
+                <div class="monday-status-cell status-${statusKey}" data-action="pick-status" data-task-id="${task.id}" title="Click to change status">
+                  ${statusObj.label}
+                </div>
+              </td>
+
+              <!-- Clickable Priority Chip -->
+              <td style="text-align:center; padding:0.25rem 0.35rem;">
+                <div class="monday-priority-chip ${prioObj.class}" data-action="pick-priority" data-task-id="${task.id}" title="Click to change priority">
+                  ${prioObj.label}
+                </div>
+              </td>
+
+              <!-- Pomodoro Counter with Stepper -->
+              <td style="text-align:center;">
+                <div class="monday-pomo-cell">
+                  <button type="button" class="btn-pomo-step" data-action="pomo-step-down" data-task-id="${task.id}" title="Decrement Pomodoro">-</button>
+                  <span class="monday-pomo-tally">🍅 ${task.completedPomos || 0}/${task.estPomos || 1}</span>
+                  <button type="button" class="btn-pomo-step" data-action="pomo-step-up" data-task-id="${task.id}" title="Increment Pomodoro">+</button>
+                </div>
+              </td>
+
+              <!-- Due Date -->
+              <td>
+                <div class="monday-date-cell ${isOverdue ? 'overdue' : (isToday ? 'today' : '')}">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  <span>${task.dueDate ? task.dueDate : 'No date'}</span>
+                </div>
+              </td>
+
+              <!-- Posture Preference -->
+              <td style="text-align:center;">
+                <span class="monday-posture-badge posture-${task.posturePref || 'auto'}" title="Ergonomic posture preference">
+                  ${task.posturePref === 'sit' ? '🪑 Sit' : (task.posturePref === 'stand' ? '🧍 Stand' : '⚡ Auto')}
+                </span>
+              </td>
+
+              <!-- Actions -->
+              <td style="text-align:right;">
+                <div style="display:inline-flex; align-items:center; gap:0.25rem;">
+                  <button type="button" class="btn-action-sm" data-action="focus-task" data-task-id="${task.id}" style="${isActive ? 'background:var(--accent); color:#07111e;' : ''}" title="Focus on this task">
+                    ${isActive ? 'Active' : 'Focus'}
+                  </button>
+                  <button type="button" class="btn-action-sm" data-action="edit-task" data-task-id="${task.id}" title="Edit task details">
+                    Edit
+                  </button>
+                  <button type="button" class="btn-delete-task" data-action="delete-task" data-task-id="${task.id}" title="Delete task">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      // Trello-Style Kanban Board Renderer
+      function renderTrelloBoard(filteredTasks) {
+        const container = document.getElementById('workspaceBoardView');
+        if (!container) return;
+        container.innerHTML = '';
+
+        if (filteredTasks.length === 0 && workspaceSearchQuery && workspaceSearchQuery.trim() !== '') {
+          container.innerHTML = `
+            <div style="flex:1; display:flex; justify-content:center; align-items:center; width:100%; min-height:280px;">
+              <div class="workspace-search-empty-state" style="max-width:480px; width:100%;">
+                <div class="search-empty-icon">🔍</div>
+                <div class="search-empty-title">No cards found matching "${escapeHtml(workspaceSearchQuery)}"</div>
+                <p class="search-empty-subtitle">We couldn't find any cards on the board matching your search query. Try searching for a different keyword or project.</p>
+                <button type="button" class="btn-action-sm" data-action="clear-workspace-search" style="padding:0.4rem 1rem; font-size:0.8rem; margin-top:0.25rem;">
+                  ✕ Clear Search
+                </button>
+              </div>
+            </div>
+          `;
+          return;
+        }
+
+        PMI_STAGES.forEach((stage, stageIdx) => {
+          const colTasks = filteredTasks.filter(t => (t.stage || 'execution') === stage.id);
+
+          const col = document.createElement('div');
+          col.className = 'trello-column';
+          col.setAttribute('data-stage-id', stage.id);
+
+          col.innerHTML = `
+            <div class="trello-column-header">
+              <div class="trello-column-title-wrap">
+                <span class="trello-stage-dot" style="background:${stage.color};"></span>
+                <span class="trello-column-title">${stage.name}</span>
+                <span class="trello-column-count">${colTasks.length}</span>
+              </div>
+              <button type="button" class="btn-action-sm" data-action="trello-open-composer" data-stage="${stage.id}" title="Add a card to this stage" style="padding:0.15rem 0.4rem; font-size:0.75rem;">
+                + Add
+              </button>
+            </div>
+
+            <div class="trello-cards-container" id="trelloColCards_${stage.id}">
+              ${renderTrelloCardsHtml(colTasks, stageIdx)}
+            </div>
+
+            <!-- Trello Card Composer at Column Footer -->
+            <div class="trello-column-footer">
+              <div class="trello-composer-closed" id="trelloComposerClosed_${stage.id}">
+                <button type="button" class="trello-btn-add-card" data-action="trello-open-composer" data-stage="${stage.id}">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  <span>Add a card</span>
+                </button>
+              </div>
+
+              <div class="trello-composer-open" id="trelloComposerOpen_${stage.id}" style="display:none;">
+                <textarea class="trello-composer-textarea" id="trelloTextarea_${stage.id}" rows="2" placeholder="Enter a title for this card..."></textarea>
+                <div class="trello-composer-actions">
+                  <button type="button" class="btn-create-submit trello-composer-add-btn" data-action="trello-submit-card" data-stage="${stage.id}">Add card</button>
+                  <button type="button" class="btn-dialog btn-dialog-ghost trello-composer-close-btn" data-action="trello-close-composer" data-stage="${stage.id}">✕</button>
+                </div>
+              </div>
+            </div>
+          `;
+
+          container.appendChild(col);
+        });
+      }
+
+      function renderTrelloCardsHtml(colTasks, stageIdx) {
+        if (colTasks.length === 0) {
+          if (workspaceSearchQuery && workspaceSearchQuery.trim() !== '') {
+            return `<div class="trello-empty-placeholder">No matches for "${escapeHtml(workspaceSearchQuery)}"</div>`;
+          }
+          return `<div class="trello-empty-placeholder">No cards in this stage</div>`;
+        }
+
+        return colTasks.map(task => {
+          const isActive = task.id === activeTaskId;
+          const proj = projects.find(p => p.id === task.projectId) || { name: 'General', color: '#38bdf8' };
+          const effCat = getEffectiveTaskCategory(task);
+          const statusKey = task.status || (task.completed ? 'done' : 'working_on_it');
+          const statusObj = MONDAY_STATUSES[statusKey] || MONDAY_STATUSES.not_started;
+          const prioKey = task.priority || 'medium';
+          const prioObj = TASK_PRIORITIES[prioKey] || TASK_PRIORITIES.medium;
+
+          const isOverdue = task.dueDate && !task.completed && task.dueDate < todayStr;
+          const isToday = task.dueDate === todayStr;
+
+          return `
+            <div class="trello-card ${isActive ? 'is-active' : ''} ${task.completed ? 'is-completed' : ''}" data-task-id="${task.id}">
+              <!-- Project color top stripe -->
+              <div class="trello-card-color-stripe" style="background:${proj.color};"></div>
+
+              <div class="trello-card-body">
+                <!-- Project Pill, Category & Quick Status -->
+                <div class="trello-card-header-row">
+                  <div style="display:flex; align-items:center; gap:0.3rem; flex-wrap:wrap;">
+                    <span class="project-pill" style="font-size:0.65rem; padding:0.1rem 0.35rem;">
+                      <span class="project-color-dot" style="background:${proj.color}; width:6px; height:6px;"></span>
+                      <span>${highlightSearchMatch(proj.name, workspaceSearchQuery)}</span>
+                    </span>
+
+                    <span class="cat-tag cat-tag-${effCat}" style="font-size:0.62rem; padding:0.08rem 0.35rem;">
+                      <span class="cat-dot cat-dot-${effCat}" style="width:5px; height:5px;"></span>
+                      <span>${effCat === 'work' ? 'Work' : 'Biz'}</span>
+                    </span>
+                  </div>
+
+                  <!-- Clickable Monday Status Badge -->
+                  <div class="monday-status-cell status-${statusKey}" data-action="pick-status" data-task-id="${task.id}" style="padding:0.12rem 0.45rem; font-size:0.65rem; border-radius:4px;" title="Click to change status">
+                    ${statusObj.label}
+                  </div>
+                </div>
+
+                <!-- Task Title (with Search Highlighting) -->
+                <div class="trello-card-title ${task.completed ? 'completed-text' : ''}" data-action="focus-task" data-task-id="${task.id}">
+                  ${highlightSearchMatch(task.title, workspaceSearchQuery)}
+                </div>
+
+                <!-- Card Meta Chips Row -->
+                <div class="trello-card-meta-row">
+                  <!-- Priority chip -->
+                  <span class="monday-priority-chip ${prioObj.class}" data-action="pick-priority" data-task-id="${task.id}" style="padding:0.1rem 0.35rem; font-size:0.65rem;">
+                    ${prioObj.label}
+                  </span>
+
+                  <!-- Pomodoros -->
+                  <span class="trello-meta-chip" title="Completed / Estimated Pomodoros">
+                    <span style="color:#fca5a5;">🍅</span>
+                    <span>${task.completedPomos || 0}/${task.estPomos || 1}</span>
+                  </span>
+
+                  <!-- Due date if available -->
+                  ${task.dueDate ? `
+                    <span class="trello-meta-chip ${isOverdue ? 'overdue' : (isToday ? 'today' : '')}" title="Due Date">
+                      <span>📅</span>
+                      <span>${task.dueDate}</span>
+                    </span>
+                  ` : ''}
+
+                  <!-- Posture preference -->
+                  <span class="trello-meta-chip" title="Posture">
+                    <span>${task.posturePref === 'sit' ? '🪑' : (task.posturePref === 'stand' ? '🧍' : '⚡')}</span>
+                  </span>
+                </div>
+
+                <!-- Trello Card Action Bar with Stage Nav Arrows -->
+                <div class="trello-card-actions-bar">
+                  <button type="button" class="btn-step-nav" data-action="step-stage-prev" data-task-id="${task.id}" ${stageIdx === 0 ? 'disabled' : ''} title="Move card to previous stage">
+                    ←
+                  </button>
+
+                  <div style="display:flex; gap:0.25rem;">
+                    <button type="button" class="btn-step-nav" data-action="focus-task" data-task-id="${task.id}" style="${isActive ? 'background:var(--accent); color:#07111e;' : ''}" title="Focus on this deliverable">
+                      ${isActive ? 'Active' : 'Focus'}
+                    </button>
+                    <button type="button" class="btn-step-nav" data-action="edit-task" data-task-id="${task.id}" title="Edit card">
+                      Edit
+                    </button>
+                    <button type="button" class="btn-step-nav" data-action="delete-task" data-task-id="${task.id}" style="color:var(--text-dim);" title="Delete card">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                    </button>
+                  </div>
+
+                  <button type="button" class="btn-step-nav" data-action="step-stage-next" data-task-id="${task.id}" ${stageIdx === PMI_STAGES.length - 1 ? 'disabled' : ''} title="Advance card to next stage">
+                    →
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Popover Management
+      function openMondayStatusPicker(taskId, triggerEl) {
+        activeStatusPickerTaskId = taskId;
+        const popover = document.getElementById('mondayStatusPicker');
+        if (!popover) return;
+
+        const rect = triggerEl.getBoundingClientRect();
+        popover.style.top = `${rect.bottom + window.scrollY + 4}px`;
+        popover.style.left = `${Math.min(window.innerWidth - 180, Math.max(10, rect.left + window.scrollX - 20))}px`;
+        popover.classList.add('visible');
+      }
+
+      function openPriorityPicker(taskId, triggerEl) {
+        activePriorityPickerTaskId = taskId;
+        const popover = document.getElementById('priorityPicker');
+        if (!popover) return;
+
+        const rect = triggerEl.getBoundingClientRect();
+        popover.style.top = `${rect.bottom + window.scrollY + 4}px`;
+        popover.style.left = `${Math.min(window.innerWidth - 160, Math.max(10, rect.left + window.scrollX - 20))}px`;
+        popover.classList.add('visible');
+      }
+
+      function closeMondayPopovers() {
+        const p1 = document.getElementById('mondayStatusPicker');
+        if (p1) p1.classList.remove('visible');
+        const p2 = document.getElementById('priorityPicker');
+        if (p2) p2.classList.remove('visible');
+        activeStatusPickerTaskId = null;
+        activePriorityPickerTaskId = null;
+      }
+
+      // Global document listener to close popovers when clicking outside
+      document.addEventListener('click', (e) => {
+        const inStatusTrigger = e.target.closest('[data-action="pick-status"]');
+        const inPrioTrigger = e.target.closest('[data-action="pick-priority"]');
+        const inStatusPopover = e.target.closest('#mondayStatusPicker');
+        const inPrioPopover = e.target.closest('#priorityPicker');
+
+        if (!inStatusTrigger && !inPrioTrigger && !inStatusPopover && !inPrioPopover) {
+          closeMondayPopovers();
+        }
+      });
+
+      // Status Popover Item Selection
+      document.getElementById('mondayStatusPicker')?.addEventListener('click', (e) => {
+        const item = e.target.closest('[data-status]');
+        if (!item || !activeStatusPickerTaskId) return;
+
+        const newStatus = item.getAttribute('data-status');
+        const task = tasks.find(t => t.id === activeStatusPickerTaskId);
+        if (task) {
+          task.status = newStatus;
+          if (newStatus === 'done') {
+            task.completed = true;
+            task.completedAt = task.completedAt || Date.now();
+          } else {
+            task.completed = false;
+          }
+          saveTasks();
+          showToast(`Updated "${task.title}" status to ${item.textContent}`);
+        }
+        closeMondayPopovers();
+      });
+
+      // Priority Popover Item Selection
+      document.getElementById('priorityPicker')?.addEventListener('click', (e) => {
+        const item = e.target.closest('[data-priority]');
+        if (!item || !activePriorityPickerTaskId) return;
+
+        const newPrio = item.getAttribute('data-priority');
+        const task = tasks.find(t => t.id === activePriorityPickerTaskId);
+        if (task) {
+          task.priority = newPrio;
+          saveTasks();
+          showToast(`Updated "${task.title}" priority to ${item.textContent}`);
+        }
+        closeMondayPopovers();
+      });
+
+      // Workspace Toolbar & Dual Switcher Events
+      document.getElementById('btnSwitchTableView')?.addEventListener('click', () => toggleWorkspaceView('table'));
+      document.getElementById('btnSwitchBoardView')?.addEventListener('click', () => toggleWorkspaceView('board'));
+
+      const searchInputEl = document.getElementById('workspaceSearchInput');
+      const searchClearBtn = document.getElementById('btnWorkspaceSearchClear');
+
+      function clearWorkspaceSearch() {
+        workspaceSearchQuery = '';
+        if (searchInputEl) {
+          searchInputEl.value = '';
+          searchInputEl.focus();
+        }
+        renderWorkspace();
+      }
+
+      searchInputEl?.addEventListener('input', (e) => {
+        workspaceSearchQuery = e.target.value;
+        renderWorkspace();
+      });
+
+      searchInputEl?.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          clearWorkspaceSearch();
+        }
+      });
+
+      searchClearBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        clearWorkspaceSearch();
+      });
+
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-action="clear-workspace-search"]');
+        if (btn) {
+          e.preventDefault();
+          clearWorkspaceSearch();
+        }
+      });
+
+      document.getElementById('workspaceStageFilter')?.addEventListener('change', (e) => {
+        workspaceStageFilter = e.target.value;
+        renderWorkspace();
+      });
+
+      document.getElementById('btnWorkspaceNewTask')?.addEventListener('click', () => {
+        // Quick create task modal or focus inline add
+        if (workspaceViewMode === 'table') {
+          const firstInput = document.querySelector('.monday-inline-input');
+          if (firstInput) {
+            firstInput.focus();
+            firstInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+          }
+        }
+        switchView('viewTasks');
+        document.getElementById('inputTaskTitle')?.focus();
+      });
+
+      // Workspace Table delegation (collapse groups, status, priority, pomo step, inline add)
+      document.getElementById('workspaceTableView')?.addEventListener('click', (e) => {
+        const target = e.target;
+
+        // Group Header Toggle
+        const groupHeader = target.closest('[data-action="toggle-group"]');
+        if (groupHeader) {
+          const st = groupHeader.getAttribute('data-stage');
+          if (st) {
+            collapsedMondayGroups[st] = !collapsedMondayGroups[st];
+            renderWorkspace();
+            return;
+          }
+        }
+
+        // Status picker trigger
+        const statusCell = target.closest('[data-action="pick-status"]');
+        if (statusCell) {
+          const taskId = statusCell.getAttribute('data-task-id');
+          openMondayStatusPicker(taskId, statusCell);
+          return;
+        }
+
+        // Priority picker trigger
+        const prioCell = target.closest('[data-action="pick-priority"]');
+        if (prioCell) {
+          const taskId = prioCell.getAttribute('data-task-id');
+          openPriorityPicker(taskId, prioCell);
+          return;
+        }
+
+        // Task checkbox toggle done
+        const checkBtn = target.closest('[data-action="toggle-task-done"]');
+        if (checkBtn) {
+          const taskId = checkBtn.getAttribute('data-task-id');
+          const task = tasks.find(t => t.id === taskId);
+          if (task) {
+            task.completed = !task.completed;
+            task.status = task.completed ? 'done' : 'working_on_it';
+            if (task.completed) task.completedAt = Date.now();
+            saveTasks();
+          }
+          return;
+        }
+
+        // Focus task
+        const focusBtn = target.closest('[data-action="focus-task"]');
+        if (focusBtn) {
+          const taskId = focusBtn.getAttribute('data-task-id');
+          if (taskId) {
+            setActiveTaskId(taskId);
+            showToast(`Active focus set to "${tasks.find(t => t.id === taskId)?.title}"`);
+          }
+          return;
+        }
+
+        // Edit task
+        const editBtn = target.closest('[data-action="edit-task"]');
+        if (editBtn) {
+          const taskId = editBtn.getAttribute('data-task-id');
+          const task = tasks.find(t => t.id === taskId);
+          if (task) openEditTaskModal(task);
+          return;
+        }
+
+        // Delete task
+        const deleteBtn = target.closest('[data-action="delete-task"]');
+        if (deleteBtn) {
+          e.stopPropagation();
+          const taskId = deleteBtn.getAttribute('data-task-id') || deleteBtn.getAttribute('data-id');
+          if (taskId) {
+            deleteTaskById(taskId);
+          }
+          return;
+        }
+
+        // Pomodoro step up/down
+        const pomoUp = target.closest('[data-action="pomo-step-up"]');
+        if (pomoUp) {
+          const taskId = pomoUp.getAttribute('data-task-id');
+          const task = tasks.find(t => t.id === taskId);
+          if (task) {
+            task.completedPomos = (task.completedPomos || 0) + 1;
+            saveTasks();
+          }
+          return;
+        }
+
+        const pomoDown = target.closest('[data-action="pomo-step-down"]');
+        if (pomoDown) {
+          const taskId = pomoDown.getAttribute('data-task-id');
+          const task = tasks.find(t => t.id === taskId);
+          if (task) {
+            task.completedPomos = Math.max(0, (task.completedPomos || 0) - 1);
+            saveTasks();
+          }
+          return;
+        }
+
+        // Inline Add button
+        const inlineBtn = target.closest('[data-action="submit-inline-task"]');
+        if (inlineBtn) {
+          const st = inlineBtn.getAttribute('data-stage');
+          const row = inlineBtn.closest('.monday-inline-add-row');
+          const input = row?.querySelector('.monday-inline-input');
+          if (input && input.value.trim()) {
+            createTaskInline(input.value.trim(), st);
+            input.value = '';
+          }
+          return;
+        }
+      });
+
+      // Keydown on inline add input in Monday table
+      document.getElementById('workspaceTableView')?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && e.target.classList.contains('monday-inline-input')) {
+          e.preventDefault();
+          const st = e.target.getAttribute('data-stage');
+          if (e.target.value.trim()) {
+            createTaskInline(e.target.value.trim(), st);
+            e.target.value = '';
+          }
+        }
+      });
+
+      function createTaskInline(title, stageId) {
+        const defaultProj = (workspaceProjectFilter !== 'all') ? workspaceProjectFilter : (projects[0]?.id || 'proj_gen');
+        const newTask = {
+          id: 'task_' + Date.now(),
+          title: title,
+          projectId: defaultProj,
+          stage: stageId || 'execution',
+          status: 'not_started',
+          priority: 'medium',
+          estPomos: 2,
+          completedPomos: 0,
+          sitBlocks: 0,
+          standBlocks: 0,
+          posturePref: 'auto',
+          completed: false,
+          startDate: todayStr,
+          dueDate: todayStr,
+          createdAt: Date.now()
+        };
+
+        tasks.unshift(newTask);
+        setActiveTaskId(newTask.id);
+        saveTasks();
+        showToast(`Added deliverable "${newTask.title}"`);
+      }
+
+      // Trello Board Delegation
+      document.getElementById('workspaceBoardView')?.addEventListener('click', (e) => {
+        const target = e.target;
+
+        // Open composer
+        const openComp = target.closest('[data-action="trello-open-composer"]');
+        if (openComp) {
+          const st = openComp.getAttribute('data-stage');
+          document.getElementById(`trelloComposerClosed_${st}`)?.style.setProperty('display', 'none');
+          const compOpen = document.getElementById(`trelloComposerOpen_${st}`);
+          if (compOpen) {
+            compOpen.style.display = 'block';
+            document.getElementById(`trelloTextarea_${st}`)?.focus();
+          }
+          return;
+        }
+
+        // Close composer
+        const closeComp = target.closest('[data-action="trello-close-composer"]');
+        if (closeComp) {
+          const st = closeComp.getAttribute('data-stage');
+          document.getElementById(`trelloComposerOpen_${st}`)?.style.setProperty('display', 'none');
+          document.getElementById(`trelloComposerClosed_${st}`)?.style.removeProperty('display');
+          return;
+        }
+
+        // Submit card
+        const submitCard = target.closest('[data-action="trello-submit-card"]');
+        if (submitCard) {
+          const st = submitCard.getAttribute('data-stage');
+          const ta = document.getElementById(`trelloTextarea_${st}`);
+          if (ta && ta.value.trim()) {
+            createTaskInline(ta.value.trim(), st);
+            ta.value = '';
+            document.getElementById(`trelloComposerOpen_${st}`)?.style.setProperty('display', 'none');
+            document.getElementById(`trelloComposerClosed_${st}`)?.style.removeProperty('display');
+          }
+          return;
+        }
+
+        // Step stage prev
+        const stepPrev = target.closest('[data-action="step-stage-prev"]');
+        if (stepPrev) {
+          const taskId = stepPrev.getAttribute('data-task-id');
+          const task = tasks.find(t => t.id === taskId);
+          if (task) {
+            const currentIdx = PMI_STAGES.findIndex(s => s.id === (task.stage || 'execution'));
+            if (currentIdx > 0) {
+              task.stage = PMI_STAGES[currentIdx - 1].id;
+              if (task.stage !== 'closure') task.completed = false;
+              saveTasks();
+            }
+          }
+          return;
+        }
+
+        // Step stage next
+        const stepNext = target.closest('[data-action="step-stage-next"]');
+        if (stepNext) {
+          const taskId = stepNext.getAttribute('data-task-id');
+          const task = tasks.find(t => t.id === taskId);
+          if (task) {
+            const currentIdx = PMI_STAGES.findIndex(s => s.id === (task.stage || 'execution'));
+            if (currentIdx < PMI_STAGES.length - 1) {
+              task.stage = PMI_STAGES[currentIdx + 1].id;
+              if (task.stage === 'closure') {
+                task.completed = true;
+                task.status = 'done';
+                task.completedAt = Date.now();
+              }
+              saveTasks();
+            }
+          }
+          return;
+        }
+
+        // Focus task
+        const focusCard = target.closest('[data-action="focus-task"]');
+        if (focusCard) {
+          const taskId = focusCard.getAttribute('data-task-id');
+          if (taskId) {
+            setActiveTaskId(taskId);
+            showToast(`Active focus set to "${tasks.find(t => t.id === taskId)?.title}"`);
+          }
+          return;
+        }
+
+        // Edit task
+        const editCard = target.closest('[data-action="edit-task"]');
+        if (editCard) {
+          const taskId = editCard.getAttribute('data-task-id');
+          const task = tasks.find(t => t.id === taskId);
+          if (task) openEditTaskModal(task);
+          return;
+        }
+
+        // Delete task
+        const deleteCard = target.closest('[data-action="delete-task"]');
+        if (deleteCard) {
+          e.stopPropagation();
+          const taskId = deleteCard.getAttribute('data-task-id') || deleteCard.getAttribute('data-id');
+          if (taskId) {
+            deleteTaskById(taskId);
+          }
+          return;
+        }
+
+        // Status picker trigger on board
+        const statusChip = target.closest('[data-action="pick-status"]');
+        if (statusChip) {
+          const taskId = statusChip.getAttribute('data-task-id');
+          openMondayStatusPicker(taskId, statusChip);
+          return;
+        }
+
+        // Priority picker trigger on board
+        const prioChip = target.closest('[data-action="pick-priority"]');
+        if (prioChip) {
+          const taskId = prioChip.getAttribute('data-task-id');
+          openPriorityPicker(taskId, prioChip);
+          return;
+        }
+      });
+
+      // Top-Bar Timer Pill Handlers
+      document.getElementById('headerBtnPlayPause')?.addEventListener('click', () => {
+        if (isRunning) pauseTimer();
+        else {
+          if (checkNotificationPermission() === 'default') requestNotificationPermission();
+          startTimer();
+        }
+      });
+
+      document.getElementById('headerBtnSkip')?.addEventListener('click', skipToNextStep);
+      document.getElementById('headerBtnDockToggle')?.addEventListener('click', () => toggleTimerDock());
+
+      // Collapsible Timer Dock Handlers
+      document.getElementById('btnCloseTimerDock')?.addEventListener('click', () => toggleTimerDock(false));
+      document.getElementById('timerDockBackdrop')?.addEventListener('click', () => toggleTimerDock(false));
+      document.getElementById('btnDockPlayPause')?.addEventListener('click', () => {
+        if (isRunning) pauseTimer();
+        else {
+          if (checkNotificationPermission() === 'default') requestNotificationPermission();
+          startTimer();
+        }
+      });
+      document.getElementById('btnDockSkip')?.addEventListener('click', skipToNextStep);
+      document.getElementById('btnDockReset')?.addEventListener('click', resetTimer);
+      document.getElementById('btnDockPostureOverride')?.addEventListener('click', togglePostureOverride);
 
       // ------------------------------------------------------------------------
       // 7. Central Operating System (Command Center) Rendering
@@ -4198,7 +7091,10 @@
                 </div>
                 <div style="display:flex; align-items:center; gap:0.35rem;">
                   <span style="color:var(--text-dim);">${task.dueDate ? `📅 Due: ${task.dueDate}` : 'Status: ' + stageObj.name}</span>
-                  <button class="btn-action-sm" data-action="os-focus" data-id="${task.id}" style="padding:0.2rem 0.45rem; font-size:0.7rem;">Focus</button>
+                  <button type="button" class="btn-action-sm" data-action="os-focus" data-id="${task.id}" style="padding:0.2rem 0.45rem; font-size:0.7rem;">Focus</button>
+                  <button type="button" class="btn-delete-task" data-action="os-delete" data-id="${task.id}" title="Delete task" style="width:24px; height:24px;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                  </button>
                 </div>
               </div>
             `;
@@ -4228,7 +7124,12 @@
                   <span class="project-color-dot" style="background:${proj.color}; width:6px; height:6px;"></span>
                   ${escapeHtml(proj.name)}
                 </span>
-                <span style="color:#86efac; font-weight:600;">✓ Completed (${task.completedPomos || 1} 🍅)</span>
+                <div style="display:flex; align-items:center; gap:0.4rem;">
+                  <span style="color:#86efac; font-weight:600;">✓ Completed (${task.completedPomos || 1} 🍅)</span>
+                  <button type="button" class="btn-delete-task" data-action="os-delete" data-id="${task.id}" title="Delete task" style="width:24px; height:24px;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                  </button>
+                </div>
               </div>
             `;
             osListDone.appendChild(card);
@@ -4254,23 +7155,37 @@
             </div>
             <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.25rem;">
               <span class="pmi-stage-badge ${stageObj.badgeClass}" style="font-size:0.65rem;">${stageObj.name}</span>
-              <button class="btn-action-sm" data-action="os-focus" data-id="${task.id}" style="padding:0.2rem 0.5rem; font-size:0.7rem;">
-                ${task.id === activeTaskId ? 'Active' : 'Focus'}
-              </button>
+              <div style="display:flex; align-items:center; gap:0.25rem;">
+                <button type="button" class="btn-action-sm" data-action="os-focus" data-id="${task.id}" style="padding:0.2rem 0.5rem; font-size:0.7rem;">
+                  ${task.id === activeTaskId ? 'Active' : 'Focus'}
+                </button>
+                <button type="button" class="btn-delete-task" data-action="os-delete" data-id="${task.id}" title="Delete task" style="width:24px; height:24px;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                </button>
+              </div>
             </div>
           `;
           osScheduleGrid.appendChild(slot);
         });
       }
 
-      // Command Center focus action delegate
+      // Command Center focus & delete action delegate
       document.getElementById('viewOS').addEventListener('click', (e) => {
-        const btn = e.target.closest('[data-action="os-focus"]');
-        if (!btn) return;
-        const id = btn.getAttribute('data-id');
-        if (id) {
-          setActiveTaskId(id);
-          switchView('viewTimer');
+        const focusBtn = e.target.closest('[data-action="os-focus"]');
+        if (focusBtn) {
+          const id = focusBtn.getAttribute('data-id');
+          if (id) {
+            setActiveTaskId(id);
+            switchView('viewTimer');
+          }
+          return;
+        }
+        const deleteBtn = e.target.closest('[data-action="os-delete"]');
+        if (deleteBtn) {
+          const id = deleteBtn.getAttribute('data-id');
+          if (id) {
+            deleteTaskById(id);
+          }
         }
       });
 
@@ -4384,14 +7299,7 @@
         } else if (action === 'kanban-edit') {
           openEditTaskModal(task);
         } else if (action === 'kanban-delete') {
-          showConfirmDialog({
-            title: 'Delete Task',
-            message: 'Are you sure you want to delete this task from the Kanban board?',
-            detail: task.title,
-            confirmText: 'Delete Task',
-            confirmClass: 'danger',
-            onConfirm: () => deleteTaskById(id)
-          });
+          deleteTaskById(id);
         }
       });
 
@@ -4430,7 +7338,26 @@
         });
 
         editTaskEstPomoInput.value = task.estPomos || 2;
+        const compInput = document.getElementById('editTaskCompletedPomoInput');
+        if (compInput) compInput.value = task.completedPomos || 0;
+
+        const statusSelect = document.getElementById('editTaskStatusSelect');
+        if (statusSelect) {
+          if (task.completed || task.stage === 'closure') {
+            statusSelect.value = 'completed';
+          } else if ((task.completedPomos || 0) > 0 || task.stage === 'execution') {
+            statusSelect.value = 'in_progress';
+          } else if (task.stage === 'monitoring') {
+            statusSelect.value = 'monitoring';
+          } else {
+            statusSelect.value = 'not_started';
+          }
+        }
+
         editTaskPostureSelect.value = task.posturePref || 'auto';
+        const catSelect = document.getElementById('editTaskCategorySelect');
+        if (catSelect) catSelect.value = task.category || 'inherit';
+
         editTaskStartDate.value = task.startDate || '';
         editTaskDueDate.value = task.dueDate || '';
 
@@ -4445,17 +7372,10 @@
       document.getElementById('btnCancelEditTask').addEventListener('click', closeEditTaskModal);
       document.getElementById('btnDeleteTaskFromModal').addEventListener('click', () => {
         const id = editTaskId.value;
-        const task = tasks.find(t => t.id === id);
-        if (!task) return;
+        if (!id) return;
         closeEditTaskModal();
-        showConfirmDialog({
-          title: 'Delete Task',
-          message: "Are you sure you want to delete this task? All completed Pomodoro blocks will still count toward today's stats.",
-          detail: task.title,
-          confirmText: 'Delete Task',
-          confirmClass: 'danger',
-          onConfirm: () => deleteTaskById(id)
-        });
+        deleteTaskById(id);
+        renderProjects();
       });
       document.getElementById('btnEditActiveTask').addEventListener('click', () => {
         const task = tasks.find(t => t.id === activeTaskId);
@@ -4475,18 +7395,37 @@
         task.title = editTaskTitleInput.value.trim();
         task.stage = editTaskStageSelect.value;
         task.projectId = editTaskProjectSelect.value;
+        const catSelect = document.getElementById('editTaskCategorySelect');
+        if (catSelect) task.category = catSelect.value;
         task.estPomos = parseInt(editTaskEstPomoInput.value, 10) || 2;
+        const compInput = document.getElementById('editTaskCompletedPomoInput');
+        if (compInput) task.completedPomos = parseInt(compInput.value, 10) || 0;
         task.posturePref = editTaskPostureSelect.value;
         task.startDate = editTaskStartDate.value;
         task.dueDate = editTaskDueDate.value;
 
-        if (task.stage === 'closure') {
+        const statusSelect = document.getElementById('editTaskStatusSelect');
+        if (statusSelect) {
+          const statusVal = statusSelect.value;
+          if (statusVal === 'completed') {
+            task.completed = true;
+            task.stage = 'closure';
+            task.completedAt = task.completedAt || Date.now();
+          } else {
+            task.completed = false;
+            if (statusVal === 'monitoring') task.stage = 'monitoring';
+            else if (statusVal === 'in_progress' && (task.stage === 'closure' || task.stage === 'initiation')) task.stage = 'execution';
+            else if (statusVal === 'not_started' && task.stage === 'closure') task.stage = 'planning';
+          }
+        } else if (task.stage === 'closure') {
           task.completed = true;
           task.completedAt = Date.now();
         }
 
         saveTasks();
+        renderProjects();
         closeEditTaskModal();
+        showToast(`Updated "${task.title}"`);
       });
 
       // ------------------------------------------------------------------------
@@ -4516,9 +7455,14 @@
 
       function renderTasks() {
         const taskListContainer = document.getElementById('taskListContainer');
+        if (!taskListContainer) return;
         taskListContainer.innerHTML = '';
 
         let filtered = tasks.slice();
+        if (currentCategoryFilter !== 'all') {
+          filtered = filtered.filter(t => getEffectiveTaskCategory(t) === currentCategoryFilter);
+        }
+
         if (currentTaskFilter === 'active') {
           filtered = filtered.filter(t => !t.completed);
         } else if (currentTaskFilter === 'completed') {
@@ -4533,16 +7477,23 @@
           filtered = filtered.filter(t => (t.stage || 'execution') === selectedStageFilter);
         }
 
-        document.getElementById('taskSummaryStats').textContent = `${tasks.filter(t => !t.completed).length} active · ${tasks.filter(t => t.completed).length} completed`;
+        const catActiveCount = (currentCategoryFilter === 'all' ? tasks : tasks.filter(t => getEffectiveTaskCategory(t) === currentCategoryFilter)).filter(t => !t.completed).length;
+        const catDoneCount = (currentCategoryFilter === 'all' ? tasks : tasks.filter(t => getEffectiveTaskCategory(t) === currentCategoryFilter)).filter(t => t.completed).length;
+
+        const summaryStatsEl = document.getElementById('taskSummaryStats');
+        if (summaryStatsEl) {
+          summaryStatsEl.textContent = `${catActiveCount} active · ${catDoneCount} completed`;
+        }
 
         if (filtered.length === 0) {
-          taskListContainer.innerHTML = '<div style="color:var(--text-dim); text-align:center; padding:2rem;">No tasks found matching current filters.</div>';
+          taskListContainer.innerHTML = `<div style="color:var(--text-dim); text-align:center; padding:2rem;">No ${currentCategoryFilter !== 'all' ? currentCategoryFilter + ' ' : ''}tasks found matching current filters.</div>`;
           return;
         }
 
         filtered.forEach(task => {
           const project = projects.find(p => p.id === task.projectId) || { name: 'General', color: '#38bdf8' };
           const stageObj = PMI_STAGES.find(s => s.id === (task.stage || 'execution')) || PMI_STAGES[2];
+          const effCat = getEffectiveTaskCategory(task);
           const isActive = task.id === activeTaskId;
 
           const itemEl = document.createElement('div');
@@ -4559,6 +7510,10 @@
                   <span class="project-pill" style="padding:0.1rem 0.4rem;">
                     <span class="project-color-dot" style="background:${project.color}; width:6px; height:6px;"></span>
                     <span>${escapeHtml(project.name)}</span>
+                  </span>
+                  <span class="cat-tag cat-tag-${effCat}" style="font-size:0.65rem; padding:0.1rem 0.4rem;">
+                    <span class="cat-dot cat-dot-${effCat}"></span>
+                    <span>${effCat === 'work' ? 'Work' : 'Business'}</span>
                   </span>
                   ${task.dueDate ? `<span>· 📅 Due: ${task.dueDate}</span>` : '<span>· 📅 No due date</span>'}
                 </div>
@@ -4604,14 +7559,7 @@
         } else if (action === 'edit-task') {
           openEditTaskModal(task);
         } else if (action === 'delete-task') {
-          showConfirmDialog({
-            title: 'Delete Task',
-            message: "Are you sure you want to delete this task? All completed Pomodoro blocks will still count toward today's stats.",
-            detail: task.title,
-            confirmText: 'Delete Task',
-            confirmClass: 'danger',
-            onConfirm: () => deleteTaskById(id)
-          });
+          deleteTaskById(id);
         }
       });
 
@@ -4621,10 +7569,13 @@
         const title = titleInput.value.trim();
         if (!title) return;
 
+        const catSelect = document.getElementById('selectTaskCategory');
+
         const newTask = {
           id: 'task_' + Date.now(),
           title: title,
           projectId: document.getElementById('selectTaskProject').value || 'proj_gen',
+          category: catSelect ? catSelect.value : 'inherit',
           stage: document.getElementById('selectTaskStage').value || 'planning',
           estPomos: parseInt(document.getElementById('selectTaskEstPomo').value, 10) || 2,
           completedPomos: 0,
@@ -4696,11 +7647,35 @@
 
       function renderProjects() {
         const grid = document.getElementById('projectGridContainer');
+        if (!grid) return;
         grid.innerHTML = '';
 
-        projects.forEach(project => {
+        const visibleProjects = currentCategoryFilter === 'all'
+          ? projects
+          : projects.filter(p => (p.category || 'work') === currentCategoryFilter);
+
+        if (visibleProjects.length === 0) {
+          grid.innerHTML = `
+            <div style="grid-column: 1 / -1; background: var(--bg-card); border: 1px dashed var(--border-subtle); border-radius: 12px; padding: 3rem 2rem; text-align: center;">
+              <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">📁</div>
+              <div style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.35rem;">
+                No ${currentCategoryFilter === 'work' ? 'Work' : 'Business'} Projects Found
+              </div>
+              <div style="color: var(--text-dim); font-size: 0.85rem; max-width: 440px; margin: 0 auto 1.25rem;">
+                There are currently no projects categorized under ${currentCategoryFilter.toUpperCase()}. Switch to "All" or create your first ${currentCategoryFilter} project.
+              </div>
+              <button type="button" class="btn-create-submit" onclick="document.getElementById('btnOpenNewProjectModal').click()">
+                + New ${currentCategoryFilter === 'work' ? 'Work' : 'Business'} Project
+              </button>
+            </div>
+          `;
+          return;
+        }
+
+        visibleProjects.forEach(project => {
           const projTasks = tasks.filter(t => t.projectId === project.id);
           const totalPomos = projTasks.reduce((acc, t) => acc + (t.completedPomos || 0), 0);
+          const estTotalPomos = projTasks.reduce((acc, t) => acc + (t.estPomos || 1), 0);
           const activeTasks = projTasks.filter(t => !t.completed);
           const doneTasks = projTasks.filter(t => t.completed);
 
@@ -4712,19 +7687,88 @@
           });
 
           const isExpanded = !!expandedProjectAccordions[project.id];
+          const progressPct = getProjectProgress(project, projTasks);
+          const stageObj = PMI_STAGES.find(s => s.id === (project.stage || 'execution')) || PMI_STAGES[2];
+          const projCat = project.category || 'work';
 
           const card = document.createElement('div');
           card.className = 'project-card';
           card.innerHTML = `
             <div class="project-card-header">
-              <div class="project-card-title">
-                <span class="project-color-dot" style="background:${project.color}; width:11px; height:11px;"></span>
-                <span>${escapeHtml(project.name)}</span>
+              <div style="display:flex; align-items:center; gap:0.55rem; flex-wrap:wrap;">
+                <span class="project-color-dot" style="background:${project.color}; width:12px; height:12px; border-radius:50%;"></span>
+                <span style="font-size:1.05rem; font-weight:700; color:var(--text-main);">${escapeHtml(project.name)}</span>
+                
+                <!-- Category Badge (Work vs Business) -->
+                <span class="cat-tag cat-tag-${projCat}" title="Project Category: ${projCat === 'work' ? 'Work' : 'Business'}">
+                  <span class="cat-dot cat-dot-${projCat}"></span>
+                  <span>${projCat === 'work' ? 'Work' : 'Business'}</span>
+                </span>
+
+                <!-- Quick Status Selector Right on Card -->
+                <select class="project-status-select" data-action="quick-project-status" data-project-id="${project.id}" title="Change project status">
+                  <option value="active" ${(project.status || 'active') === 'active' ? 'selected' : ''}>Active</option>
+                  <option value="on_track" ${project.status === 'on_track' ? 'selected' : ''}>🟢 On Track</option>
+                  <option value="at_risk" ${project.status === 'at_risk' ? 'selected' : ''}>🔴 At Risk</option>
+                  <option value="on_hold" ${project.status === 'on_hold' ? 'selected' : ''}>🟡 On Hold</option>
+                  <option value="planning" ${project.status === 'planning' ? 'selected' : ''}>🟣 Planning</option>
+                  <option value="completed" ${project.status === 'completed' ? 'selected' : ''}>✅ Completed</option>
+                </select>
+
+                <span class="pmi-stage-badge ${stageObj.badgeClass}" style="font-size:0.65rem;" title="Project PMI Stage">
+                  ${stageObj.name}
+                </span>
               </div>
-              <div class="project-badges-row">
-                <span class="project-task-pill">${projTasks.length} total tasks</span>
-                <span class="project-active-pill">${activeTasks.length} active</span>
-                <span class="project-done-pill">${doneTasks.length} closure</span>
+
+              <div style="display:flex; align-items:center; gap:0.45rem; flex-wrap:wrap;">
+                <div class="project-badges-row">
+                  <span class="project-task-pill">${projTasks.length} task${projTasks.length === 1 ? '' : 's'}</span>
+                  <span class="project-active-pill">${activeTasks.length} active</span>
+                  <span class="project-done-pill">${doneTasks.length} closure</span>
+                </div>
+
+                <div style="display:flex; align-items:center; gap:0.25rem;">
+                  <button type="button" class="btn-icon-action" data-action="edit-project" data-project-id="${project.id}" title="Edit project details &amp; progress">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                  </button>
+                  <button type="button" class="btn-icon-action danger" data-action="delete-project" data-project-id="${project.id}" title="Delete project">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            ${project.description ? `<div class="project-desc-text">${escapeHtml(project.description)}</div>` : ''}
+
+            <!-- Interactive Progress Bar & Status Bar -->
+            <div class="project-progress-container">
+              <div class="project-progress-header">
+                <div style="display:flex; align-items:center; gap:0.4rem;">
+                  <span style="font-weight:700; color:var(--text-main);">Progress:</span>
+                  <span style="font-family:var(--font-mono); font-weight:700; color:${project.color || 'var(--accent)'}; font-size:0.85rem;">${progressPct}%</span>
+                  <span style="font-size:0.7rem; color:var(--text-dim);">
+                    ${project.progressMode === 'manual' ? '(Manual Override)' : `(${doneTasks.length}/${projTasks.length} tasks completed)`}
+                  </span>
+                </div>
+
+                <div style="display:flex; align-items:center; gap:0.35rem;">
+                  ${project.progressMode === 'manual' ? `
+                    <button type="button" class="btn-pomo-step" data-action="quick-manual-progress" data-project-id="${project.id}" data-delta="-10" title="Decrease progress by 10%">-</button>
+                    <button type="button" class="btn-pomo-step" data-action="quick-manual-progress" data-project-id="${project.id}" data-delta="10" title="Increase progress by 10%">+</button>
+                    <button type="button" class="btn-action-sm" data-action="toggle-project-progress-mode" data-project-id="${project.id}" style="font-size:0.68rem; padding:0.15rem 0.4rem;" title="Switch to Auto Task Progress">
+                      Auto %
+                    </button>
+                  ` : `
+                    <button type="button" class="btn-action-sm" data-action="toggle-project-progress-mode" data-project-id="${project.id}" style="font-size:0.68rem; padding:0.15rem 0.4rem;" title="Switch to Manual Progress override">
+                      Manual %
+                    </button>
+                  `}
+                  ${project.dueDate ? `<span style="font-size:0.7rem; color:var(--text-dim); margin-left:0.25rem;">📅 Due: ${project.dueDate}</span>` : ''}
+                </div>
+              </div>
+
+              <div class="project-progress-track">
+                <div class="project-progress-fill" style="width: ${progressPct}%; background:${project.color || 'var(--accent)'};"></div>
               </div>
             </div>
 
@@ -4758,8 +7802,8 @@
             </div>
 
             <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.75rem; color:var(--text-muted); background:rgba(255,255,255,0.02); padding:0.4rem 0.65rem; border-radius:8px;">
-              <span>Focus investment: <strong style="color:#fca5a5; font-family:var(--font-mono);">🍅 ${totalPomos} Pomodoros</strong> (~${(totalPomos * 0.5).toFixed(1)}h)</span>
-              <span>Completion: <strong style="color:var(--text-main); font-family:var(--font-mono);">${projTasks.length > 0 ? Math.round((doneTasks.length / projTasks.length) * 100) : 0}%</strong></span>
+              <span>Focus investment: <strong style="color:#fca5a5; font-family:var(--font-mono);">🍅 ${totalPomos}/${estTotalPomos} Pomodoros</strong> (~${(totalPomos * 0.5).toFixed(1)}h logged)</span>
+              <span>Tasks complete: <strong style="color:var(--text-main); font-family:var(--font-mono);">${doneTasks.length}/${projTasks.length} (${projTasks.length > 0 ? Math.round((doneTasks.length / projTasks.length) * 100) : 0}%)</strong></span>
             </div>
 
             <div class="project-btn-bar">
@@ -4814,16 +7858,37 @@
           } else {
             stageTasks.forEach(task => {
               const isTaskActive = task.id === activeTaskId;
+              const taskPct = task.completed ? 100 : (task.estPomos > 0 ? Math.min(100, Math.round(((task.completedPomos || 0) / task.estPomos) * 100)) : 0);
               html += `
                 <div class="stage-group-task-row ${task.completed ? 'is-completed' : ''}">
-                  <div style="display:flex; align-items:center; gap:0.5rem; min-width:0; flex:1;">
+                  <div style="display:flex; align-items:center; gap:0.5rem; min-width:0; flex:1; flex-wrap:wrap;">
                     <button class="task-checkbox" data-action="toggle-task-complete" data-task-id="${task.id}" title="${task.completed ? 'Mark incomplete' : 'Mark complete'}">
                       ${task.completed ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
                     </button>
-                    <span style="font-weight:600; color:var(--text-main); text-decoration:${task.completed ? 'line-through' : 'none'}; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    <span style="font-weight:600; color:var(--text-main); text-decoration:${task.completed ? 'line-through' : 'none'}; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:220px;" title="${escapeHtml(task.title)}">
                       ${escapeHtml(task.title)}
                     </span>
-                    <span style="color:#fca5a5; font-size:0.72rem; font-family:var(--font-mono); white-space:nowrap;">🍅 ${task.completedPomos || 0}/${task.estPomos || 1}</span>
+
+                    <!-- Inline Quick Stage/Status Selector -->
+                    <select class="select-task-stage-inline" data-action="quick-change-task-stage" data-task-id="${task.id}" title="Change task PMI stage">
+                      <option value="initiation" ${task.stage === 'initiation' ? 'selected' : ''}>1. Init</option>
+                      <option value="planning" ${task.stage === 'planning' ? 'selected' : ''}>2. Plan</option>
+                      <option value="execution" ${(task.stage === 'execution' || !task.stage) ? 'selected' : ''}>3. Exec</option>
+                      <option value="monitoring" ${task.stage === 'monitoring' ? 'selected' : ''}>4. Ctrl</option>
+                      <option value="closure" ${(task.stage === 'closure' || task.completed) ? 'selected' : ''}>5. Close</option>
+                    </select>
+
+                    <!-- Inline Pomodoro Progress Stepper -->
+                    <div style="display:flex; align-items:center; gap:0.25rem;">
+                      <button type="button" class="btn-pomo-step" data-action="step-task-pomo-down" data-task-id="${task.id}" title="Decrease completed pomodoros">-</button>
+                      <span style="color:#fca5a5; font-size:0.72rem; font-family:var(--font-mono); white-space:nowrap;">🍅 ${task.completedPomos || 0}/${task.estPomos || 1}</span>
+                      <button type="button" class="btn-pomo-step" data-action="step-task-pomo-up" data-task-id="${task.id}" title="Increase completed pomodoros">+</button>
+                    </div>
+
+                    <span style="font-size:0.68rem; font-family:var(--font-mono); color:${task.completed ? '#86efac' : 'var(--text-dim)'}; background:rgba(255,255,255,0.04); padding:0.1rem 0.35rem; border-radius:4px;">
+                      ${taskPct}%
+                    </span>
+
                     ${task.dueDate ? `<span style="font-size:0.72rem; color:var(--text-dim); white-space:nowrap;">📅 ${task.dueDate}</span>` : ''}
                   </div>
                   <div style="display:flex; align-items:center; gap:0.35rem; flex-shrink:0;">
@@ -4846,6 +7911,38 @@
 
         return html;
       }
+
+      // Delegate project card changes (status, stage selects)
+      document.getElementById('projectGridContainer').addEventListener('change', (e) => {
+        const target = e.target;
+        const action = target.getAttribute('data-action');
+        if (!action) return;
+
+        if (action === 'quick-project-status') {
+          const projId = target.getAttribute('data-project-id');
+          const proj = projects.find(p => p.id === projId);
+          if (proj) {
+            proj.status = target.value;
+            saveProjects();
+            showToast(`Updated status for "${proj.name}" to ${target.options[target.selectedIndex].text}`);
+          }
+        } else if (action === 'quick-change-task-stage') {
+          const taskId = target.getAttribute('data-task-id');
+          const task = tasks.find(t => t.id === taskId);
+          if (task) {
+            task.stage = target.value;
+            if (task.stage === 'closure') {
+              task.completed = true;
+              task.completedAt = task.completedAt || Date.now();
+            } else {
+              task.completed = false;
+            }
+            saveTasks();
+            renderProjects();
+            showToast(`Moved "${task.title}" to ${target.options[target.selectedIndex].text}`);
+          }
+        }
+      });
 
       // Delegate project card clicks
       document.getElementById('projectGridContainer').addEventListener('click', (e) => {
@@ -4872,6 +7969,43 @@
           document.getElementById('filterStageSelect').value = selectedStageFilter;
           switchView('viewTasks');
           renderTasks();
+        } else if (action === 'edit-project') {
+          openEditProjectModal(projId);
+        } else if (action === 'delete-project') {
+          deleteProjectById(projId);
+        } else if (action === 'toggle-project-progress-mode') {
+          const proj = projects.find(p => p.id === projId);
+          if (proj) {
+            proj.progressMode = proj.progressMode === 'manual' ? 'auto' : 'manual';
+            if (proj.manualProgress === undefined) {
+              const projTasks = tasks.filter(t => t.projectId === proj.id);
+              proj.manualProgress = getProjectProgress(proj, projTasks);
+            }
+            saveProjects();
+            showToast(`Switched "${proj.name}" progress mode to ${proj.progressMode}`);
+          }
+        } else if (action === 'quick-manual-progress') {
+          const proj = projects.find(p => p.id === projId);
+          const delta = parseInt(btn.getAttribute('data-delta'), 10) || 0;
+          if (proj) {
+            proj.progressMode = 'manual';
+            proj.manualProgress = Math.max(0, Math.min(100, (proj.manualProgress || 0) + delta));
+            saveProjects();
+          }
+        } else if (action === 'step-task-pomo-up') {
+          const t = tasks.find(x => x.id === taskId);
+          if (t) {
+            t.completedPomos = (t.completedPomos || 0) + 1;
+            saveTasks();
+            renderProjects();
+          }
+        } else if (action === 'step-task-pomo-down') {
+          const t = tasks.find(x => x.id === taskId);
+          if (t) {
+            t.completedPomos = Math.max(0, (t.completedPomos || 0) - 1);
+            saveTasks();
+            renderProjects();
+          }
         } else if (action === 'toggle-task-complete') {
           const t = tasks.find(x => x.id === taskId);
           if (t) {
@@ -4887,19 +8021,9 @@
           const t = tasks.find(x => x.id === taskId);
           if (t) openEditTaskModal(t);
         } else if (action === 'proj-task-delete') {
-          const t = tasks.find(x => x.id === taskId);
-          if (t) {
-            showConfirmDialog({
-              title: 'Delete Task',
-              message: "Are you sure you want to delete this task? All completed Pomodoro blocks will still count toward today's stats.",
-              detail: t.title,
-              confirmText: 'Delete Task',
-              confirmClass: 'danger',
-              onConfirm: () => {
-                deleteTaskById(taskId);
-                renderProjects();
-              }
-            });
+          if (taskId) {
+            deleteTaskById(taskId);
+            renderProjects();
           }
         }
       });
@@ -5140,6 +8264,14 @@ ${docs.closure.archive || '_Not documented_'}
       document.getElementById('btnOpenNewProjectModal').addEventListener('click', () => {
         newProjectModal.classList.add('open');
         document.getElementById('inputProjectName').value = '';
+        const descInput = document.getElementById('inputProjectDescription');
+        if (descInput) descInput.value = '';
+        const catSel = document.getElementById('selectNewProjectCategory');
+        if (catSel) catSel.value = currentCategoryFilter === 'business' ? 'business' : 'work';
+        const statusSel = document.getElementById('selectNewProjectStatus');
+        if (statusSel) statusSel.value = 'active';
+        const stageSel = document.getElementById('selectNewProjectStage');
+        if (stageSel) stageSel.value = 'planning';
       });
 
       function closeProjectModal() { newProjectModal.classList.remove('open'); }
@@ -5147,9 +8279,9 @@ ${docs.closure.archive || '_Not documented_'}
       document.getElementById('btnCancelProject').addEventListener('click', closeProjectModal);
       newProjectModal.addEventListener('click', (e) => { if (e.target === newProjectModal) closeProjectModal(); });
 
-      document.querySelectorAll('.color-dot-opt').forEach(dot => {
+      document.querySelectorAll('#projectColorPickerRow .color-dot-opt').forEach(dot => {
         dot.addEventListener('click', () => {
-          document.querySelectorAll('.color-dot-opt').forEach(d => d.style.borderColor = 'transparent');
+          document.querySelectorAll('#projectColorPickerRow .color-dot-opt').forEach(d => d.style.borderColor = 'transparent');
           dot.style.borderColor = '#fff';
           selectedProjectColor = dot.getAttribute('data-color') || '#38bdf8';
         });
@@ -5161,17 +8293,185 @@ ${docs.closure.archive || '_Not documented_'}
         const name = nameInput.value.trim();
         if (!name) return;
 
+        const descInput = document.getElementById('inputProjectDescription');
+        const catSel = document.getElementById('selectNewProjectCategory');
+        const statusSel = document.getElementById('selectNewProjectStatus');
+        const stageSel = document.getElementById('selectNewProjectStage');
+
         const newProj = {
           id: 'proj_' + Date.now(),
           name: name,
+          category: catSel ? catSel.value : 'work',
           color: selectedProjectColor,
+          description: descInput ? descInput.value.trim() : '',
+          status: statusSel ? statusSel.value : 'active',
+          stage: stageSel ? stageSel.value : 'planning',
+          progressMode: 'auto',
+          manualProgress: 50,
+          dueDate: '',
           pmiDocs: getDefaultPmiDocs(name)
         };
         projects.push(newProj);
         saveProjects();
         closeProjectModal();
-        showToast(`Created project "${newProj.name}"`);
+        showToast(`Created ${newProj.category === 'business' ? 'Business' : 'Work'} project "${newProj.name}"`);
       });
+
+      // ------------------------------------------------------------------------
+      // Edit & Delete Project Handlers
+      // ------------------------------------------------------------------------
+      let editProjectSelectedColor = '#38bdf8';
+      const editProjectModal = document.getElementById('editProjectModal');
+
+      function openEditProjectModal(projId) {
+        const project = projects.find(p => p.id === projId);
+        if (!project) return;
+
+        document.getElementById('editProjectId').value = project.id;
+        document.getElementById('editProjectNameInput').value = project.name;
+        document.getElementById('editProjectDescriptionInput').value = project.description || '';
+        const catSel = document.getElementById('editProjectCategorySelect');
+        if (catSel) catSel.value = project.category || 'work';
+        document.getElementById('editProjectStatusSelect').value = project.status || 'active';
+        document.getElementById('editProjectStageSelect').value = project.stage || 'execution';
+
+        const progMode = project.progressMode || 'auto';
+        document.getElementById('editProjectProgressModeSelect').value = progMode;
+
+        const manualCard = document.getElementById('editProjectManualProgressCard');
+        manualCard.style.display = progMode === 'manual' ? 'block' : 'none';
+
+        const manualVal = project.manualProgress !== undefined ? project.manualProgress : 50;
+        document.getElementById('editProjectProgressSlider').value = manualVal;
+        document.getElementById('editProjectProgressNum').textContent = `${manualVal}%`;
+        document.getElementById('editProjectDueDateInput').value = project.dueDate || '';
+
+        editProjectSelectedColor = project.color || '#38bdf8';
+        const dotEl = document.getElementById('editProjectColorDot');
+        if (dotEl) dotEl.style.background = editProjectSelectedColor;
+
+        document.querySelectorAll('#editProjectColorPickerRow .color-dot-opt').forEach(dot => {
+          const c = dot.getAttribute('data-color');
+          if (c === editProjectSelectedColor) {
+            dot.style.borderColor = '#fff';
+            dot.classList.add('active');
+          } else {
+            dot.style.borderColor = 'transparent';
+            dot.classList.remove('active');
+          }
+        });
+
+        editProjectModal.classList.add('open');
+      }
+
+      function closeEditProjectModal() {
+        editProjectModal.classList.remove('open');
+      }
+
+      document.getElementById('btnEditProjectModalClose').addEventListener('click', closeEditProjectModal);
+      document.getElementById('btnCancelEditProject').addEventListener('click', closeEditProjectModal);
+      editProjectModal.addEventListener('click', (e) => {
+        if (e.target === editProjectModal) closeEditProjectModal();
+      });
+
+      document.querySelectorAll('#editProjectColorPickerRow .color-dot-opt').forEach(dot => {
+        dot.addEventListener('click', () => {
+          document.querySelectorAll('#editProjectColorPickerRow .color-dot-opt').forEach(d => {
+            d.style.borderColor = 'transparent';
+            d.classList.remove('active');
+          });
+          dot.style.borderColor = '#fff';
+          dot.classList.add('active');
+          editProjectSelectedColor = dot.getAttribute('data-color') || '#38bdf8';
+          const dotEl = document.getElementById('editProjectColorDot');
+          if (dotEl) dotEl.style.background = editProjectSelectedColor;
+        });
+      });
+
+      document.getElementById('editProjectProgressModeSelect').addEventListener('change', (e) => {
+        const isManual = e.target.value === 'manual';
+        document.getElementById('editProjectManualProgressCard').style.display = isManual ? 'block' : 'none';
+      });
+
+      document.getElementById('editProjectProgressSlider').addEventListener('input', (e) => {
+        document.getElementById('editProjectProgressNum').textContent = `${e.target.value}%`;
+      });
+
+      document.getElementById('btnDeleteProjectFromModal').addEventListener('click', () => {
+        const projId = document.getElementById('editProjectId').value;
+        closeEditProjectModal();
+        deleteProjectById(projId);
+      });
+
+      document.getElementById('formEditProject').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const id = document.getElementById('editProjectId').value;
+        const project = projects.find(p => p.id === id);
+        if (!project) return;
+
+        project.name = document.getElementById('editProjectNameInput').value.trim();
+        project.color = editProjectSelectedColor;
+        project.description = document.getElementById('editProjectDescriptionInput').value.trim();
+        const catSel = document.getElementById('editProjectCategorySelect');
+        if (catSel) project.category = catSel.value;
+        project.status = document.getElementById('editProjectStatusSelect').value;
+        project.stage = document.getElementById('editProjectStageSelect').value;
+        project.progressMode = document.getElementById('editProjectProgressModeSelect').value;
+        project.manualProgress = parseInt(document.getElementById('editProjectProgressSlider').value, 10) || 0;
+        project.dueDate = document.getElementById('editProjectDueDateInput').value;
+
+        saveProjects();
+        saveTasks();
+        closeEditProjectModal();
+        showToast(`Saved project "${project.name}"`);
+      });
+
+      function deleteProjectById(projId) {
+        const project = projects.find(p => p.id === projId);
+        if (!project) return;
+
+        if (projects.length <= 1) {
+          showToast('Cannot delete the only project. Please create another project first.');
+          return;
+        }
+
+        const projTasks = tasks.filter(t => t.projectId === projId);
+        const otherProject = projects.find(p => p.id !== projId);
+
+        if (projTasks.length === 0) {
+          showConfirmDialog({
+            title: 'Delete Project',
+            message: `Are you sure you want to delete "${project.name}"? This action cannot be undone.`,
+            detail: `Project: ${project.name}`,
+            confirmText: 'Delete Project',
+            confirmClass: 'danger',
+            onConfirm: () => {
+              projects = projects.filter(p => p.id !== projId);
+              saveProjects();
+              showToast(`Deleted project "${project.name}"`);
+            }
+          });
+        } else {
+          showConfirmDialog({
+            title: 'Delete Project & Reassign Tasks',
+            message: `"${project.name}" currently contains ${projTasks.length} task(s). Deleting this project will preserve and reassign these tasks to "${otherProject.name}".`,
+            detail: `${projTasks.length} task(s) will be preserved in "${otherProject.name}"`,
+            confirmText: 'Delete & Reassign',
+            confirmClass: 'danger',
+            onConfirm: () => {
+              tasks.forEach(t => {
+                if (t.projectId === projId) {
+                  t.projectId = otherProject.id;
+                }
+              });
+              projects = projects.filter(p => p.id !== projId);
+              saveProjects();
+              saveTasks();
+              showToast(`Deleted "${project.name}". ${projTasks.length} tasks reassigned to "${otherProject.name}".`);
+            }
+          });
+        }
+      }
 
       // ------------------------------------------------------------------------
       // 12. Daily Goals & Ergonomics UI
@@ -5435,20 +8735,33 @@ ${docs.closure.archive || '_Not documented_'}
         } else if (e.key === 'm' || e.key === 'M') {
           e.preventDefault();
           document.getElementById('btnSoundToggle').click();
+        } else if (e.key === 't' || e.key === 'T') {
+          e.preventDefault();
+          toggleTimerDock();
+        } else if (e.key === '/' && !e.ctrlKey && !e.metaKey) {
+          e.preventDefault();
+          switchView('viewWorkspace');
+          const input = document.getElementById('workspaceSearchInput');
+          if (input) {
+            input.focus();
+            input.select();
+          }
         } else if (e.key === '1') {
-          switchView('viewTimer');
+          switchView('viewProjects');
         } else if (e.key === '2') {
-          switchView('viewOS');
+          switchView('viewWorkspace');
         } else if (e.key === '3') {
-          switchView('viewKanban');
+          switchView('viewOS');
         } else if (e.key === '4') {
-          switchView('viewTasks');
-        } else if (e.key === '5') {
           switchView('viewGoals');
+        } else if (e.key === '5') {
+          switchView('viewTimer');
         } else if (e.key === 'Escape') {
           closeSettings();
           closeProjectModal();
           closeEditTaskModal();
+          toggleTimerDock(false);
+          closeMondayPopovers();
         }
       });
 
@@ -5457,6 +8770,10 @@ ${docs.closure.archive || '_Not documented_'}
       // ------------------------------------------------------------------------
       function init() {
         populateProjectDropdowns();
+        populateWorkspaceProjectPills();
+        toggleWorkspaceView(workspaceViewMode || 'table');
+        updateCategoryCounts();
+        renderWorkspace();
         renderProjects();
         renderTasks();
         renderKanban();
